@@ -1,0 +1,166 @@
+[DIALOG d_ambientacao]
+// Página 1 (page 0)
+100,75
+page 0
+resizepic 50 31 2620 500 400 // Fundo da página 0
+checkertrans 55 38 490 385 // Transparência para fundo
+gumppic 0 0 10400 // Gump de fundo
+gumppic 0 160 10401 // Gump de imagem 1
+gumppic 0 356 10402 // Gump de imagem 2
+gumppic 518 -2 10410 // Gump de barra superior
+gumppic 518 160 10411 // Gump de barra lateral
+gumppic 518 356 10412 // Gump de rodapé
+gumppic 217 45 2440 // Gump do título
+dtext 225 48 48 Noites Sombrias Shard // Título do servidor
+resizepic 92 87 2620 416 310 // Fundo do conteúdo
+Page 1
+// Definindo os textos de introdução na Página 1
+text 225 95 48 0
+text 100 110 400 1
+text 100 125 400 2
+text 100 140 400 3
+text 100 155 400 4
+text 100 170 400 5
+text 100 185 400 6
+text 100 200 400 7
+text 100 215 400 8
+text 100 230 400 9
+text 100 245 400 10
+text 100 260 400 11
+text 100 275 400 12
+text 100 290 400 13
+text 100 305 400 14
+text 100 320 400 15
+
+// Botões de navegação na Página 1
+button 470 350 4005 4007 1 0 1 // Avançar para a página 2
+
+// Página 2 (page 1)
+page 2
+text 100 110 400 16
+text 100 125 400 17
+text 100 140 400 18
+text 100 155 400 19
+text 100 170 400 20
+text 100 185 400 21
+text 100 200 400 22
+text 100 215 400 23
+text 100 230 400 24
+text 100 245 400 25
+text 100 260 400 26
+text 100 275 400 27
+text 100 290 400 28
+text 100 305 400 29
+text 100 320 400 30
+
+// Botões de navegação na Página 2
+button 100 350 4014 4016 1 1 0 // Retroceder para a página 0
+button 470 350 4005 4007 1 1 2 // Avançar para a página 3
+
+// Página 3 (page 2)
+page 3
+text 100 110 400 31
+text 100 125 400 32
+text 100 140 400 33
+text 100 155 400 34
+text 100 170 400 35
+text 100 185 400 36
+text 100 200 400 37
+text 100 215 400 38
+text 100 230 400 39
+text 100 245 400 40
+text 100 260 400 41
+text 100 275 400 42
+text 100 290 400 43
+text 100 305 400 44
+text 100 320 400 45
+
+// Botões de navegação na Página 3
+button 100 350 4014 4016 1 2 1 // Retroceder para a página 1
+button 470 350 4005 4007 1 2 3 // Avançar para a página 4
+
+// Página 4 (page 3)
+page 4
+text 100 110 400 46
+text 100 125 400 47
+text 100 140 400 48
+text 100 155 400 49
+text 100 170 400 50
+text 100 185 400 51
+text 100 200 400 52
+text 100 215 400 53
+text 100 230 400 54
+text 100 245 400 55
+text 100 260 400 56
+text 100 275 400 57
+text 100 290 400 58
+text 100 305 400 59
+text 100 320 400 60
+
+// Botões de navegação na Página 4
+button 100 350 4014 4016 1 3 2 // Retroceder para a página 2
+
+[DIALOG d_ambientacao TEXT]
+
+Ambientação do jogador
+  Em Eldoria, o foco da cidade de Aesir está na complexa 
+interação entre as famílias nobres, cada uma delas 
+desempenhando um papel estratégico na sustentação do 
+reino. A convivência entre os humanos de Aesir é marcada 
+pela hierarquia social, onde a nobreza governa as várias 
+regiões do continente, tecendo uma rede de alianças, 
+rivalidades e intrigas políticas.
+
+  A estrutura social de Aesir, que engloba a realeza, a 
+nobreza e os cidadãos comuns, é delineada pelo controle 
+da economia, religião e poder militar. A cidade é um polo 
+de comércio, com um mercado vibrante que atrai mercadores 
+de todas as partes. Os habitantes encontram segurança sob 
+a proteção da Guarda Real, um exército leal exclusivamente 
+ao rei, que não aceita membros de famílias nobres para 
+evitar conflitos de interesse.
+
+  A fé em Luminara, a Deusa da Luz e da Prosperidade, tem 
+uma influência profunda em Aesir, regulando a moralidade 
+e impactando as decisões políticas. A Catedral de Luminara, 
+um marco sagrado da cidade, lidera a devoção com cerimônias 
+que envolvem o clero e a nobreza. O Arcebispo Elias, figura 
+central da religião, possui um papel decisivo nas questões 
+morais e nos julgamentos, contribuindo para a tensão entre 
+o poder espiritual e o secular.
+
+  As casas nobres de Aesir possuem influência significativa, 
+agindo com certa autonomia em suas terras. Nos salões e 
+banquetes da cidade, as alianças entre essas famílias são 
+reforçadas e testadas, onde disputas de poder e acordos 
+são feitos, com todos os olhares voltados para o trono e o 
+futuro do reino. Este cenário de nobreza é o palco central 
+para os conflitos e desafios, criando uma ambientação rica 
+para intrigas e desenvolvimento de personagens.
+
+  A cidade se torna um lugar de convivência regulada, onde 
+cada morador, desde o artesão até o nobre, vive sob a 
+vigilância da Guarda Real e do clero. As festividades, 
+como o Festival da Luz e o Dia da Prosperidade, permitem 
+que todos participem de celebrações que fortalecem a união 
+temporária, mas logo os interesses individuais e as alianças 
+nobres voltam a moldar a política e a sociedade da cidade. 
+Eldoria, então, se define como um espaço de disputa de 
+poder, honra e fé, onde as ações das casas nobres direcionam 
+o destino de todos.
+
+
+
+[DIALOG d_ambientacao BUTTON]
+
+ON=0
+// Primeira página
+DIALOG d_ambientacao 1
+
+ON=1
+// Segunda página
+DIALOG d_ambientacao 2
+
+ON=2
+// Terceira página
+DIALOG d_ambientacao 3

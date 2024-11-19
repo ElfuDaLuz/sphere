@@ -1,0 +1,64 @@
+[EVENTS e_NpcGenericEvent]
+
+// Ataque de NPC
+ON=@attack
+    RETURN <src.trigger @Attacked, <def.tat_as_argo>, <uid>>
+
+// Sistema de Seguidores (Morte)
+ON=@death
+    IF (<def.scp.followers> == 1)
+        IF (<src.memoryfindtype.memory_ipet>)
+            REF7 = <src.memoryfindtype.memory_ipet.link.uid>
+            REF7.curfollower -= <qval <src.tag0.control.slots> ? <src.tag0.control.slots> : 1>
+        ENDIF
+    ENDIF
+
+// Ajuste de vestimenta na morte
+IF <findlayer.22>
+    TAG.robe = <findlayer.22.uid>
+    IF <findlayer.3>
+        TAG.feet = <findlayer.3.uid>
+    ENDIF
+ENDIF
+
+// Sistema de Quests (Verificar requisitos ao morrer)
+REF42 = <attacker.max>
+IF (<REF42.tag0.quests>)
+    FOR <REF42.tag0.quests>
+        FOR x 1 <def.quest_<REF42.dtag0.quest<dlocal._for>.id>_objectiveamount>
+            IF <def.quest_<REF42.dtag0.quest<dlocal._for>.id>_objective<x>_type> == 2
+                IF (<baseid> == <streat <def.quest_<REF42.dtag0.quest<dlocal._for>.id>_objective<x>>>)
+                    REF42.tag.quest<dlocal._for>.slay<streat <def.quest_<REF42.dtag0.quest<dlocal._for>.id>_objective<x>>> --
+                    IF !(<REF42.tag0.quest<dlocal._for>.slay<streat <def.quest_<REF42.dtag0.quest<dlocal._for>.id>_objective<x>>>)
+                        SYSMESSAGE <def.scp.quest_complete>
+                    ENDIF
+                ENDIF
+            ENDIF
+        ENDFOR
+    ENDFOR
+ENDIF
+
+// Robe Fix após morte
+ON=@deathcorpse
+    IF <tag0.robe>
+        UID.<tag.robe>.z = 3
+        UID.<tag.feet>.z = 8
+        TAG.robe =
+        TAG.feet =
+    ENDIF
+
+// Seguidores (Desertar)
+ON=@petdesert
+    IF <def.scp.followers> == 1
+        SRC.curfollower -= <qval <tag0.control.slots> ? <tag0.control.slots> : 1>
+    ENDIF
+
+// Sistema de Envenenamento ao Golpear
+ON=@hit
+    IF <def.scp.NewSkills_Poisoning> == 1
+        IF <tag0.skill.poisoning>
+            SRC.new_poison <max <eval <tag0.skill.poisoning> - 2>, 0>, <uid>
+        ENDIF
+    ENDIF
+
+

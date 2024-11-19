@@ -1,0 +1,136 @@
+// Arquery - Diálogo de Habilidade
+[DIALOG d_cartography]
+100,75
+page 0
+resizepic 50 31 2620 500 400 // Fundo da página 0
+checkertrans 55 38 490 385 // Transparência para fundo
+gumppic 0 0 10400 // Gump de fundo
+gumppic 0 160 10401 // Gump de imagem 1
+gumppic 0 356 10402 // Gump de imagem 2
+gumppic 518 -2 10410 // Gump de barra superior
+gumppic 518 160 10411 // Gump de barra lateral
+gumppic 518 356 10412 // Gump de rodapé
+gumppic 217 45 2440 // Gump do título
+text 232 48 48 0  Noites Sombrias Shard // Título do servidor
+resizepic 92 87 2620 416 310 // Fundo do conteúdo
+
+page 1
+// Icone ou imagem cliloc
+text 260 100 48 1
+gumppic 125 120 124 // Exemplo de ícone de habilidade
+text 105 280 2497 2
+text 105 300 2497 3
+text 105 320 2497 4
+text 105 340 2497 5
+text 105 360 2497 6
+
+button 100 400 4014 4016 1 1 0 // Botão para próxima página
+button 470 400 4014 4016 1 1 1 // Botão para próxima página
+
+page 2
+text 100 100 48 7
+text 100 120 2497 8
+text 100 140 2497 9
+text 100 160 2497 10
+text 100 180 2497 11
+text 100 200 2497 12
+text 100 220 2497 13
+text 100 260 48 14
+text 100 280 2497 15
+text 100 300 2497 16
+text 100 320 2497 17
+text 100 340 2497 18
+text 100 360 2497 19
+button 100 400 4014 4016 1 1 2 // Botão para próxima página
+//button 470 400 4014 4016 1 1 3 // Botão para próxima página
+
+page 3
+text 100 100 2497 20
+text 100 120 48 21
+text 100 140 400 22
+text 100 160 400 23
+text 100 180 400 24
+text 100 200 400 25
+text 100 220 400 26
+text 100 240 400 27
+text 100 260 2497 28
+text 100 280 2497 29
+text 100 300 2497 30
+text 100 320 2497 31
+text 100 340 2497 32
+text 100 360 2497 33
+button 100 400 4014 4016 1 1 4 // Botão para próxima página
+button 470 400 4014 4016 1 1 5 // Botão para próxima página
+
+page 4
+text 100 100 48 34
+text 100 120 400 35
+text 100 140 400 36
+text 100 160 400 37
+text 100 180 400 38
+text 100 200 400 39
+text 100 220 400 40
+text 100 240 2497 41
+text 100 260 2497 42
+text 100 280 2497 43
+text 100 300 2497 44
+text 100 320 2497 45
+text 100 340 2497 46
+text 100 360 2497 47
+button 100 400 4014 4016 1 1 6 // Botão para próxima página
+
+// Continuar adicionando páginas conforme necessário
+
+[DIALOG d_cartography TEXT]
+Noites Sombrias Shard
+(Cartografia)
+
+A habilidade de Cartografia permite ao jogador medir distâncias 
+geográficas e criar mapas com diferentes níveis de detalhamento.
+Essencial para exploradores, comerciantes, navegadores e 
+militares, a cartografia auxilia na orientação, no planejamento 
+de rotas e na criação de estratégias usando pontos estratégicos.
+
+Como Utilizar:
+Para usar a habilidade, o jogador precisa do item
+"papel de cartógrafo," que pode ser fabricado usando a skill 
+Carpentry. Ao clicar duas vezes no papel de cartógrafo, uma 
+paleta de opções de mapa será exibida. A precisão e a 
+quantidade de detalhes do mapa produzido aumentam conforme
+o nível da habilidade de Cartografia do personagem.
+
+Dicas de Navegação:
+Embora a habilidade ofereça mapas detalhados,
+cidades e outros pontos específicos não são automaticamente 
+marcados. Assim, o jogador deve ter um conhecimento prévio 
+da região ou poderá enfrentar dificuldades na orientação.
+
+[DIALOG d_cartography BUTTON]
+
+ON=0
+
+sDIALOG d_skills 2
+
+ON=1
+
+sDIALOG d_cartography 2
+
+ON=2
+
+sDIALOG d_cartography 1
+
+ON=3
+
+sDIALOG d_cartography 3
+
+ON=4
+
+sDIALOG d_cartography 2
+
+ON=5
+
+sDIALOG d_cartography 4
+
+ON=6
+
+sDIALOG d_cartography 3

@@ -1,0 +1,156 @@
+
+[DIALOG d_guia_criar_classe]
+
+//... Code for the dialog layout goes here ...
+
+// Página 1 (page 0)
+100,75
+page 0
+resizepic 50 31 2620 500 400 // Fundo da página 0
+checkertrans 55 38 490 385 // Transparência para fundo
+gumppic 0 0 10400 // Gump de fundo
+gumppic 0 160 10401 // Gump de imagem 1
+gumppic 0 356 10402 // Gump de imagem 2
+gumppic 518 -2 10410 // Gump de barra superior
+gumppic 518 160 10411 // Gump de barra lateral
+gumppic 518 356 10412 // Gump de rodapé
+gumppic 217 45 2440 // Gump do título
+dtext 225 48 48 Noites Sombrias Shard // Título do servidor
+resizepic 92 87 2620 416 310 // Fundo do conteúdo
+Page 1
+// Definindo os textos de introdução na Página 1
+text 225 95 48 0
+text 100 110 400 1
+text 100 125 400 2
+text 100 140 400 3
+text 100 155 400 4
+text 100 170 400 5
+text 100 185 400 6
+text 100 200 400 7
+text 100 215 400 8
+text 100 230 400 9
+text 100 245 400 10
+text 100 260 400 11
+text 100 275 400 12
+text 100 290 400 13
+text 100 305 400 14
+text 100 320 400 15
+
+// Botões de navegação na Página 1
+button 470 350 4005 4007 1 0 1 // Avançar para a página 2
+
+// Página 2 (page 1)
+page 2
+text 100 110 400 16
+text 100 125 400 17
+text 100 140 400 18
+text 100 155 400 19
+text 100 170 400 20
+text 100 185 400 21
+text 100 200 400 22
+text 100 215 400 23
+text 100 230 400 24
+text 100 245 400 25
+text 100 260 400 26
+text 100 275 400 27
+text 100 290 400 28
+text 100 305 400 29
+text 100 320 400 30
+
+// Botões de navegação na Página 2
+button 100 350 4014 4016 1 1 0 // Retroceder para a página 0
+button 470 350 4005 4007 1 1 2 // Avançar para a página 3
+
+// Página 3 (page 2)
+page 3
+text 100 110 400 31
+text 100 125 400 32
+text 100 140 400 33
+text 100 155 400 34
+text 100 170 400 35
+text 100 185 400 36
+text 100 200 400 37
+text 100 215 400 38
+text 100 230 400 39
+text 100 245 400 40
+text 100 260 400 41
+text 100 275 400 42
+text 100 290 400 43
+text 100 305 400 44
+text 100 320 400 45
+
+
+
+
+
+
+
+
+
+
+[DIALOG d_guia_criar_classe TEXT]
+//... The text that will be displayed in the dialog goes here ...
+
+Criação de Classe
+Uma superclasse, meus caros, é a categoria que agrupa uma
+série de classes. Tomemos como exemplo o engenheiro, um ser
+multifacetado com diversas especializações. Seja na indústria
+automobilística ou na alimentícia, o engenheiro permanece, no
+fundo, um engenheiro.
+
+Escolha a superclasse que melhor se alinha com a essência de
+seu personagem. Em seguida, aventure-se pelas classes, explorando
+suas características. E, caso não sinta que fez a escolha correta,
+nada impede que refaça sua decisão e siga por outro caminho.
+
+Classe: Sua Profissão
+Ao escolher sua superclasse e, então, sua classe, você será
+guiado para uma tela reveladora. Ali, serão apresentadas as
+habilidades iniciais, a descrição técnica e as características
+que definem a classe que você selecionou.
+
+A partir deste ponto, a jornada continua. Você pode evoluir em
+sua profissão, se especializando em outras habilidades e traçando
+um destino único. Não há regras que impeçam, por exemplo, um
+domador de animais de adquirir uma varinha mágica e seguir o
+caminho da magia.
+
+Definição de Atributos
+Chegamos à penúltima etapa da criação de seu personagem. Aqui,
+você terá 200 pontos para distribuir entre força, destreza e
+inteligência, escolhendo sabiamente onde concentrá-los.
+
+Lembre-se, o máximo e mínimo de cada atributo são definidos
+pela raça de seu personagem. Estude com atenção as opções de
+raças, pois suas escolhas agora determinarão a flexibilidade
+para atingir os atributos que deseja.
+
+Signo e Sorte
+Apesar de um vasto universo de mais de 50 classes, há um fator
+único que pode diferenciar seu personagem dos demais. Um bônus
+especial, algo que vai além das habilidades.
+
+Esse bônus, minha amiga, meu amigo, é aleatório e pode assumir
+formas sutis, mas poderosas. Mudanças em atributos, tempos de
+regeneração ou até na resistência da sua armadura. Aproveite
+essa dádiva e faça-a trabalhar a seu favor.
+
+E quem sabe, se seu personagem for supersticioso, ele poderá
+incluir a sorte em sua própria representação. O que acha da
+ideia?
+
+
+[DIALOG d_guia_criar_classe BUTTON]
+//... The events that are triggered when buttons are pressed goes here ...
+
+ON=0
+// Primeira página
+DIALOG d_guia_criar_classe 1
+
+ON=1
+// Segunda página
+DIALOG d_guia_criar_classe 2
+
+ON=2
+// Terceira página
+DIALOG d_guia_criar_classe 3

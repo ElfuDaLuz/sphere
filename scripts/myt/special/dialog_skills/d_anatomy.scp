@@ -1,0 +1,129 @@
+
+
+
+// Arquery - Diálogo de Habilidade
+[DIALOG d_anatomy]
+//... Code for the dialog layout goes here ...
+100,75
+page 0
+resizepic 50 31 2620 500 400 // Fundo da página 0
+checkertrans 55 38 490 385 // Transparência para fundo
+gumppic 0 0 10400 // Gump de fundo
+gumppic 0 160 10401 // Gump de imagem 1
+gumppic 0 356 10402 // Gump de imagem 2
+gumppic 518 -2 10410 // Gump de barra superior
+gumppic 518 160 10411 // Gump de barra lateral
+gumppic 518 356 10412 // Gump de rodapé
+gumppic 217 45 2440 // Gump do título
+text 232 48 48 0  Noites Sombrias Shard // Título do servidor
+resizepic 92 87 2620 416 310 // Fundo do conteúdo
+
+page 1
+text 270 100 48 1
+text 120 280 2497 2
+text 120 300 2497 3
+text 120 320 2497 4
+text 120 340 2497 5
+text 120 360 2497 6
+
+
+// Icone ou imagem cliloc
+gumppic 125 120 133 // Exemplo de ícone de habilidade 350x150
+
+button 100 400 4014 4016 1 1 0
+
+button 470 400 4014 4016 1 1 1
+
+
+page 2
+text 100 100 48 7
+text 100 120 2497 8
+text 100 140 2497 9
+text 100 200 48 10
+text 100 220 2497 11
+text 100 240 2497 12
+text 100 260 2497 13
+text 100 280 2497 14
+text 100 300 2497 15
+text 100 320 2497 16
+text 100 340 2497 17
+
+button 100 400 4014 4016 1 1 4 Pagina Principal
+button 470 400 4014 4016 1 1 2 // Pagina 2
+page 3
+text 100 100 48 18
+text 100 120 2497 19
+text 100 140 2497 20
+text 100 160 2497 21
+text 100 180 2497 22
+text 100 200 2497 23
+text 100 220 2497 24
+text 100 240 2497 25
+text 100 260 2497 26
+text 100 280 2497 27
+text 100 300 2497 28
+text 100 320 2497 29
+text 100 340 2497 30
+text 100 360 2497 31
+
+
+button 100 400 4014 4016 1 1 1 Pagina Principal
+
+
+// Icone ou imagem cliloc
+
+[DIALOG d_anatomy TEXT]
+Noites Sombrias Shard
+
+(Anatomia)
+
+Anatomia permite o conhecimento profundo de corpos, desde 
+animais até raças como Anões, Elfos e Humanos. Essa 
+habilidade beneficia o jogador em combate, com bônus de 
+dano baseados no nível de skill e permite maior 
+aproveitamento ao dissecar corpos de criaturas.
+
+Bônus de Combate
+Com Anatomy, ao acertar um oponente, você ganha um bônus de 
+dano que varia de 0 a 50%, dependendo do nível de skill.
+
+Dissecando Corpos
+Ao clicar duas vezes em uma arma de corte e depois no corpo de 
+um animal, o personagem busca recursos como carne, penas, peles
+e órgãos. Ferramentas específicas aumentam as chances
+e a quantidade de recursos extraídos:
+
+Faca de pelar: Melhor para pelos, penas e couro.
+Faca de açougueiro: Ideal para carne e órgãos específicos.
+Cutelo: Exclusivo para miúdos, como fígado e coração.
+
+Uso da Perícia
+Ao usar a habilidade, você pode obter descrições dos atributos
+físicos do alvo, revelando informações sobre força, destreza e
+fôlego. Essas mensagens refletem a condição física do alvo
+e variam conforme o nível de skill do jogador.
+
+
+// Botões para navegação
+[DIALOG d_anatomy BUTTON]
+
+ON=0
+
+sDIALOG d_skills 2
+
+
+ON=1
+
+DIALOG d_anatomy 2
+
+ON=2
+
+DIALOG d_anatomy 3
+
+ON=3
+
+DIALOG d_anatomy 3
+
+ON=4
+
+DIALOG d_anatomy 1

@@ -1,0 +1,84 @@
+
+
+
+// Arquery - Diálogo de Habilidade
+[DIALOG d_ItemID]
+//... Code for the dialog layout goes here ...
+100,75
+page 0
+resizepic 50 31 2620 500 400 // Fundo da página 0
+checkertrans 55 38 490 385 // Transparência para fundo
+gumppic 0 0 10400 // Gump de fundo
+gumppic 0 160 10401 // Gump de imagem 1
+gumppic 0 356 10402 // Gump de imagem 2
+gumppic 518 -2 10410 // Gump de barra superior
+gumppic 518 160 10411 // Gump de barra lateral
+gumppic 518 356 10412 // Gump de rodapé
+gumppic 217 45 2440 // Gump do título
+text 232 48 48 0  Noites Sombrias Shard // Título do servidor
+resizepic 92 87 2620 416 310 // Fundo do conteúdo
+
+page 1                                                      // Pagina 1
+text 235 100 48 1                                           // Titulo Pagina 1 = (Identificação de Itens)
+gumppic 125 120 124                                         // Exemplo de ícone de habilidade 350x150
+text 120 280 2497 2 
+text 120 300 2497 3
+text 120 320 2497 4
+text 120 340 2497 5
+button 100 400 4014 4016 1 1 0                              // Botao de voltar para d_skills 2 Pagina 2
+button 470 400 4014 4016 1 1 1                              // Botao proxima pagina
+
+
+page 2                                                      // Pagina 2
+text 265 100 48 6                                         // Titulo = Uso da Skill
+text 100 120 2497 7 
+text 100 140 2497 8 
+text 100 160 2497 9 a
+text 230 220 48 10 
+text 100 240 2497 11 
+text 100 260 2497 12 
+text 100 280 2497 13
+text 100 300 2497 14
+
+
+button 100 400 4014 4016 1 1 2
+
+
+
+[DIALOG d_ItemID TEXT]
+Noites Sombrias Shard
+
+(Identificação de Itens)                                    // Titulo 1 text 1
+
+Essa habilidade permite ao personagem reconhecer a função   // text 2
+e os poderes ocultos dos itens encontrados. Diversos        // text 3
+artefatos em Hellfar podem conter propriedades mágicas      // text 4
+ou habilidades extras que requerem identificação.           // text 5
+
+Uso da Skill                                                //titulo 2 text 6 
+Para usá-la, clique na runa de skills e depois no item a    // text 7
+ser identificado. A dificuldade baseia-se na habilidade     // text 8
+necessária para fabricar o item.                            // text 9
+
+Bônus por Conhecimento                                      // text 10
+Um bônus de 33.3% de sua skill de criação é somado ao       // text 11
+tentar identificar o item, caso você tenha conhecimento
+em sua fabricação. Se o item já estiver identificado,
+uma janela detalhará seu funcionamento.(.analisar)
+
+
+// Botões para navegação
+[DIALOG d_ItemID BUTTON]
+
+ON=0
+
+sDIALOG d_skills 2 // Botao de voltar para d_skills 2 Pagina 2
+
+ON=1
+
+sDIALOG d_ItemID 2 // Botao proxima pagina 2
+
+
+ON=2
+
+sDIALOG d_ItemID 1 // Botao voltar pagina 1

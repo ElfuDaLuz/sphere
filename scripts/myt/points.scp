@@ -1,0 +1,39 @@
+VERSION=0.56b
+
+[STARTS]
+Yew
+The Sturdy Bow
+5395,2770,0,1
+Minoc
+The Barnacle Tavern
+5395,2770,0,1
+Britain
+Sweet Dreams Inn
+5395,2770,0,1
+Moonglow
+The Scholars Inn
+5395,2770,0,1
+Trinsic
+The Traveller's Inn
+5395,2770,0,1
+Magincia
+The Great Horns Tavern
+5395,2770,0,1
+Jhelom
+The Morning Star Inn
+5395,2770,0,1
+Skara Brae
+The Falconers Inn
+5395,2770,0,1
+Vesper
+The Ironwood Inn
+5395,2770,0,1
+
+[MoonGates]
+//1336,1997,5,1=mg_britain
+
+[DEFNAME startpoint]
+GLOBAL_STARTPOINT 5395,2770,0,1
+FINAL_STARTPOINT 5154,3282,0,0
+
+[EOF]

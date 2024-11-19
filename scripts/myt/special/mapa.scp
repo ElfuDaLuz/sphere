@@ -1,0 +1,827 @@
+VERSION=0.56b
+
+//REGEX SEARCH [[]AREADEF.*\nNAME.*\nGROUP.*\nP.*\n\(.*\)\nRECT=\([0-9]*\),\([0-9]*\),
+//REGEX REPLAC [AREADEF an_\1]\nNAME=\1\nGROUP=A2011\nP=\2,\3,1,1\nRECT=\2,\3,
+//REGEX SEARCH AREADEF an_\(.*\) \(.*\)]
+//REGEX REPLAC AREADEF an_\1_\2
+
+//*****************************************************************************
+// special areas
+//*****************************************************************************
+
+[AREADEF a_world]
+NAME=Mundo
+GROUP=GM
+P=3077,2048,1,1
+RECT=0,1,5120,4096,1
+CLASS=11
+EVENTS=r_mpobre_rock, r_default_water, r_default_tree, r_default_grass, r_default_sand, r_default_snow, r_default_nothing
+
+[AREADEF a_dungeons]
+NAME=Calabouco
+GROUP=GM
+P=1519,1000,5,1
+RECT=5121,1,6150,4096,1
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_default_tree, r_default_grass,r_mpobre_rock, r_snd_dungeon
+
+
+[AREADEF a_death_gulch]
+NAME=Ravina da Morte
+GROUP=Cidade
+P=3716,1540,1,1
+RECT=3673,1472,3802,1524,1
+RECT=3711,1476,3722,1483,1
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_devil_guard]
+NAME=Guarda do Diabo
+GROUP=Cidade
+P=1656,1485,2,1
+RECT=1543,1349,1787,1453,1
+RECT=1416,1453,1950,1613,1
+RECT=1532,1613,1933,1662,1
+RECT=1599,1662,1915,1727,1
+RECT=1594,1490,1608,1507,1
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_town_of_moon]
+NAME=Cidade da Lua
+GROUP=Cidade
+P=807,728,1,1
+RECT=762,667,865,739,1
+RECT=762,739,847,785,1
+RECT=829,686,832,691,1
+RECT=833,677,838,691,1
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_town_of_grey]
+NAME=Greyhauk
+GROUP=Cidade
+P=902,2063,1,1
+RECT=818,2041,943,2108,1
+RECT=895,2108,932,2140,1
+RECT=908,2068,916,2082,1
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_town_of_west_montor]
+NAME=Cidade Oeste de Montor
+GROUP=Cidade
+P=3122,2610,1,1
+RECT=3056,2561,3193,2663,1
+RECT=3107,2622,3124,2631,1
+RECT=3107,2632,3118,2640,1
+RECT=3107,2641,3124,2650,1
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_town_of_east_montor]
+NAME=Cidade Leste de Montor
+GROUP=Cidade
+P=3313,2610,1,1
+RECT=3246,2561,3383,2663,1
+RECT=3306,2631,3321,2641,1
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_town_of_fawn]
+NAME=Elorin
+GROUP=Cidade
+P=2119,276,1,1
+RECT=2058,242,2206,321,1
+RECT=2135,247,2151,272,1
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_town_of_yew]
+NAME=Eloria
+GROUP=Cidade
+P=2432,875,2,1
+RECT=2336,825,2543,915,1
+RECT=2483,847,2495,860,1
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_town_of_britain]
+NAME=Baronia
+GROUP=Cidade
+P=2999,1044,1,1
+RECT=2884,1041,2947,1112,1
+RECT=2940,888,3050,1119,1
+RECT=2963,1080,2981,1097,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass, r_snd_city
+
+[AREADEF a_pirate_isle]
+NAME=Ilha Pirata
+GROUP=Cidade
+P=1818,2231,1,1
+RECT=1733,2116,1915,2266,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_jail]
+NAME=Jail
+GROUP=Cadeia
+P=5275,1163,1,1
+RECT=3112,2569,3133,2573,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_farmlands_main]
+NAME=Fazenda do Sul de Baronia 1
+GROUP=Fazenda
+P=2977,1238,1,1
+RECT=2960,1263,3005,1285,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_southern_britain_farm1]
+NAME=Fazenda do Sul de Baronia 2
+GROUP=Cidade
+P=2930,1181,1,1
+RECT=2930,1181,2973,1215,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_southern_britain_farm2]
+NAME=Fazenda Perdida 1
+GROUP=Cidade
+P=2807,973,1,1
+RECT=2807,973,2847,1017,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_western_britain_farm1]
+NAME=Fazenda Perdida 2
+GROUP=Cidade
+P=2758,895,1,1
+RECT=2758,895,2799,947,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_northern_britain_farm1]
+NAME=Fazenda Perdida 3
+GROUP=Cidade
+P=2606,504,1,1
+RECT=2606,504,2660,550,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_northern_britain_farm2]
+NAME=Fazenda dos Bandidos
+GROUP=Cidade
+P=2670,586,1,1
+RECT=2670,586,2721,639,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_northern_britain_farm3]
+NAME=Fazenda dos Bandidos
+GROUP=Cidade
+P=2771,584,1,1
+RECT=2771,584,2827,625,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_eastern_moon_farm]
+NAME=Fazenda da Lua 1
+GROUP=Cidade
+P=935,626,1,1
+RECT=935,626,1020,687,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_southern_moon_farm1]
+NAME=Fazenda da Lua 2
+GROUP=Cidade
+P=902,765,1,1
+RECT=902,765,940,802,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_southern_moon_farm2]
+NAME=Fazenda da Lua 3
+GROUP=Cidade
+P=954,1019,1,1
+RECT=954,1019,1016,1128,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+
+[AREADEF a_an_abandoned_home]
+NAME=Casa abandonada
+GROUP=Cidade
+P=1911,928,1,1
+RECT=1896,913,1908,924,1
+RECT=3312,2057,3325,2068,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_lighthouse]
+NAME=Farol
+GROUP=Cidade
+P=3195,525,1,1
+RECT=3191,506,3201,521,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_a_haunted_forest]
+NAME=Floresta Assombrada
+GROUP=Cidade
+P=2495,548,1,1
+RECT=2408,528,2539,582,1
+RECT=2442,499,2501,519,1
+RECT=2541,541,2595,614,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_orc_territory]
+NAME=Territorio Orc
+GROUP=Cidade
+P=572,489,1,1
+RECT=517,450,621,507,1
+RECT=552,505,631,561,1
+RECT=3283,1053,3535,1246,1
+RECT=2071,1516,2649,2116,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_some_old_ruins]
+NAME=Ruinas
+GROUP=Cidade
+P=541,203,1,1
+RECT=497,188,548,216,1
+RECT=1808,745,1844,774,1
+RECT=3082,795,3107,814,1
+RECT=3674,498,3722,555,1
+RECT=1655,1780,1752,1863,1
+RECT=1082,3376,1101,3393,1
+RECT=1854,3615,1871,3629,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_a_cemetary]
+NAME=Cemiterio
+GROUP=Cidade
+P=572,489,1,1
+RECT=806,598,830,630,1
+RECT=2159,351,2177,370,1
+RECT=3055,952,3094,974,1
+RECT=3062,1013,3096,1036,1
+RECT=1736,1599,1778,1641,1
+RECT=928,1972,986,2009,1
+RECT=2894,1968,2933,1997,1
+RECT=3237,2784,3271,2822,1
+RECT=1812,3304,1826,3320,1
+RECT=999,3421,1007,3432,1
+RECT=5659,3225,5740,3232,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_an_old_fortress]
+NAME=Fortaleza Esquecida
+GROUP=Cidade
+P=3800,1868,1,1
+RECT=1226,1381,1365,1519,1
+RECT=3779,1846,3812,1857,1
+RECT=3786,1857,3812,1877,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_dark_tower]
+NAME=Torre do Mago Negro
+GROUP=Dungeon
+P=3501,2277,1,1
+RECT=3501,2277,3513,2291,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_a_mountain_stronghold]
+NAME=Fortaleza do Pico
+GROUP=Cidade
+P=1405,3687,45,1
+RECT=1365,3633,1443,3686,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_vinterdale_isle]
+NAME=Ilha Gelida
+GROUP=Cidade
+P=4597,1269,2,1
+RECT=4277,1122,5088,1368,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_iceclad_fisherman's_village]
+NAME=Vila do Pescador Congelado
+GROUP=Cidade
+P=2899,676,2,1
+RECT=4287,1137,4341,1201,1
+RECT=4295,1191,4305,1197,1
+RECT=4306,1185,4312,1197,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_mountain_crest_village]
+NAME=Vila Cristal de Gelo
+GROUP=Cidade
+P=4514,1276,2,1
+RECT=4482,1233,4566,1296,1
+RECT=4486,1258,4496,1263,1
+RECT=4490,1264,4496,1270,1
+RECT=4486,1271,4496,1276,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_shingorr_village]
+NAME=Vila Shingorr
+GROUP=Cidade
+P=4749,1177,2,1
+RECT=4715,1134,4792,1204,1
+RECT=4718,1171,4723,1177,1
+RECT=4724,1171,4730,1183,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_unknown_land]
+NAME=Ilha Desconhecida
+GROUP=Cidade
+P=1553,3612,1,1
+RECT=864,3189,2126,4088,1
+RECT=1295,3848,1317,3864,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_town_of_renika]
+NAME=Cidade de Renika
+GROUP=Cidade
+P=1449,3787,1,1
+RECT=1411,3737,1487,3810,1
+RECT=1415,3794,1420,3801,1
+RECT=1421,3794,1427,3807,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_a_cathedral]
+NAME=Templo Antigo de solarius
+GROUP=Cidade
+P=1449,3787,1,1
+RECT=1386,3777,1403,3790,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_ambrosia]
+NAME=Ambrosia
+GROUP=Cidade
+P=5583,3556,10,1
+RECT=5130,3042,6135,4088,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_a_ababdoned_town]
+NAME=Cidade Abandonada
+GROUP=Cidade
+P=5743,3262,1,1
+RECT=5641,3219,5826,3341,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_dawn]
+NAME=Floresta do Alvorecer
+GROUP=Cidade
+P=0,1,1,1
+RECT=2376,2238,2664,2505,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_town_of_dawn]
+NAME=Cidade Alvorecer
+GROUP=Cidade
+P=2487,2369,1,1
+RECT=2471,2329,2590,2391,1
+RECT=2471,2391,2559,2412,1
+RECT=2488,2348,2495,2359,1
+RECT=2495,2354,2499,2359,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_etherial_plane]
+NAME=Plano Etereo
+GROUP=Cidade
+P=0,1,1,1
+RECT=5808,2750,6096,3017,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_etherial_town_of_dawn]
+NAME=Cidade do Plano Etereo
+GROUP=Cidade
+P=5919,2881,1,1
+RECT=5903,2841,6022,2903,1
+RECT=5903,2903,5991,2924,1
+RECT=5920,2860,5927,2871,1
+RECT=5927,2866,5931,2871,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_green_acres]
+NAME=Area de Testes
+GROUP=Cidade
+P=4752,3861,1,1
+RECT=4526,3660,4991,4038,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_start_room]
+NAME=Sala de Criacao
+GROUP=GM
+P=5392,2771,1,1
+RECT=5378,2755,5409,2787,1
+FLAGS=region_flag_guarded|region_flag_safe|region_flag_underground|region_flag_nobuilding|region_antimagic_damage|region_antimagic_gate|region_antimagic_all
+EVENTS=
+
+[AREADEF a_the_town_room]
+NAME=Sala de Reuniao
+GROUP=Cidade
+P=5263,2767,1,1
+RECT=5248,2755,5277,2781,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_at_or_near_a_dungeon_entrance]
+NAME=Perto de uma entrada de masmorra
+GROUP=Cidade
+P=3344,1654,1,1
+RECT=1613,2520,1657,2601,1
+RECT=2989,439,3020,467,1
+RECT=3577,450,3642,472,1
+RECT=3820,1487,3851,1521,1
+RECT=3707,2026,3809,2070,1
+RECT=975,1361,1056,1429,1
+RECT=3308,1619,3387,1712,1
+RECT=1115,440,1192,503,1
+RECT=1512,3563,1560,3638,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_caverns_under_the_britain_cemetery]
+NAME=Tumba de um antigo alquimista
+GROUP=Dungeon
+P=5953,2480,5,1
+RECT=5874,2452,5991,2585,1
+FLAGS=region_flag_underground
+EVENTS=r_mina_ini
+
+[AREADEF a_the_sewers_under_britain]
+NAME=Esgoto de Baronia
+GROUP=Dungeon
+P=5806,2604,5,1
+RECT=5738,2550,5825,2645,1
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_snd_dungeon
+
+[AREADEF a_the_doom_dungeon]
+NAME=Masmorra da desgraca
+GROUP=Dungeon
+P=5322,72,1,1
+RECT=5187,49,5417,382,1
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_dardin's_pit_dungeon]
+NAME=Calabouco do Poco Demoniaco
+GROUP=Dungeon
+P=5698,49,1,1
+RECT=5476,24,5790,482,1
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_perinia_depths_dungeon]
+NAME=Masmorra das Profundezas
+GROUP=Dungeon
+P=5953,80,1,1
+RECT=5820,26,6053,500,1
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_time_awaits_dungeon]
+NAME=Masmorra Do Tempo
+GROUP=Dungeon
+P=5630,594,1,1
+RECT=5467,542,5748,939,1
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_clues_dungeon]
+NAME=Masmorra Desconhecida
+GROUP=Dungeon
+P=5313,2275,1,1
+RECT=5537,2080,6021,2263,1
+RECT=5264,2237,5426,2371,1
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_mines_of_morinia_dungeon]
+NAME=Masmorra das Minas de Morinia
+GROUP=Dungeon
+P=5898,1223,1,1
+RECT=5809,913,6054,1623,1
+RECT=5529,1437,5809,1623,1
+
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_fires_of_hell_dungeon]
+NAME=Masmorra fogo do inferno
+GROUP=Dungeon
+P=5333,1290,1,1
+RECT=5209,1048,5427,1470,1
+RECT=5435,1174,5737,1379,1
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_ancient_pyramid]
+NAME=Piramide Ancestral
+GROUP=Dungeon
+P=5322,573,1,1
+RECT=5197,441,5427,978,1
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_kings_chamber]
+NAME=the Kings Chamber
+GROUP=Cidade
+P=5213,1839,1,1
+RECT=5192,1793,5231,1846,1
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_time_lord's_chamber]
+NAME=the Time Lord's Chamber
+GROUP=Cidade
+P=5213,1839,1,1
+RECT=4653,3228,4941,3487,1
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_a_player's_dungeon]
+NAME=Masmorra
+GROUP=Cidade
+P=2683,3541,1,1
+RECT=2307,3217,2835,4073,1
+RECT=2861,3206,3359,3384,1
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_caverns_under_dawn]
+NAME=Caverna debaixo do Amanhecer
+GROUP=Cidade
+P=317,3824,1,1
+RECT=53,3276,682,3948,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+
+[AREADEF a_a_cave]
+NAME=Cavernas
+GROUP=Cidade
+P=5284,1667,1,1
+RECT=5160,1552,5493,1766,1
+RECT=5534,1671,6103,2053,1
+RECT=5183,1859,5434,2131,1
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_frost_guard_dungeon]
+NAME=Guarda Gelida
+GROUP=Cidade
+P=4468,3284,25,1
+RECT=4191,3257,4487,3354,1
+TAG.modtemp=0
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_cresent_cavern_dungeon]
+NAME=Masmorra do Dragao da Lua Crescente
+GROUP=Cidade
+P=4309,3481,25,1
+RECT=4285,3423,4464,3507,1
+TAG.modtemp=0
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_ice_cavern_dungeon]
+NAME=Caverna de Gelo
+GROUP=Cidade
+P=4401,3679,1,1
+RECT=4187,3588,4439,3872,1
+TAG.modtemp=0
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_icy_depths_dungeon]
+NAME=Masmorra das Profundezas Geladas
+GROUP=Cidade
+P=5186,2957,25,1
+RECT=5161,2873,5295,2977,1
+TAG.modtemp=0
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_witchen_delve_dungeon]
+NAME=Masmorra de Aprofundamento da Bruxa
+GROUP=Cidade
+P=5430,2887,25,1
+RECT=5347,2865,5483,2980,1
+TAG.modtemp=0
+FLAGS=region_flag_underground
+EVENTS=r_default_water, r_mina_ini, r_snd_dungeon
+
+[AREADEF a_the_dragon's_eye_watch_dungeon]
+NAME=Olho do Dragao
+GROUP=Cidade
+P=5539,2795,1,1
+RECT=5480,2718,5590,2809,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_an_ancient_catacomb]
+NAME=Catacumba Ancestral
+GROUP=Cidade
+P=4028,3343,20,1
+RECT=3789,3236,4049,3506,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+[AREADEF a_the_exodus_dungeon]
+NAME=Masmorra Chamas Infernais
+GROUP=Cidade
+P=5928,590,1,1
+RECT=5842,547,6018,709,1
+TAG.modtemp=5
+RainChance=0
+COLDCHANCE=0
+FLAGS=00000
+EVENTS=r_default_water, r_default_tree, r_default_grass
+
+
+//*****************************************************************************
+// Mapa 1
+//*****************************************************************************
+
+[AREADEF a_world_1]
+NAME=Mundo1
+P=1323,1624,55,1
+RECT=0,1,6144,4096,1
+CLASS=11
+GROUP=0 Mapa
+EVENTS=r_mpobre_rock, r_default_water, r_default_tree, r_default_grass
+RAINCHANCE=0
+COLDCHANCE=0
+
+
+[EOF]
