@@ -1,0 +1,53 @@
+
+
+
+
+// Arquery - Diálogo de Habilidade
+[DIALOG d_Provocation]
+//... Code for the dialog layout goes here ...
+100,75
+page 0
+resizepic 50 31 2620 500 400 // Fundo da página 0
+checkertrans 55 38 490 385 // Transparência para fundo
+gumppic 0 0 10400 // Gump de fundo
+gumppic 0 160 10401 // Gump de imagem 1
+gumppic 0 356 10402 // Gump de imagem 2
+gumppic 518 -2 10410 // Gump de barra superior
+gumppic 518 160 10411 // Gump de barra lateral
+gumppic 518 356 10412 // Gump de rodapé
+gumppic 217 45 2440 // Gump do título
+text 232 48 48 0  Noites Sombrias Shard // Título do servidor
+resizepic 92 87 2620 416 310 // Fundo do conteúdo
+
+page 1
+text 270 100 48 1
+text 120 280 2497 2
+text 120 300 2497 3
+text 120 320 2497 4
+text 120 340 2497 5
+text 120 360 2497 6
+text 120 380 2497 7
+
+
+// Icone ou imagem cliloc
+gumppic 125 120 124 // Exemplo de ícone de habilidade 350x150
+button 100 400 4014 4016 1 1 0
+
+[DIALOG d_Provocation TEXT]
+Noites Sombrias Shard
+
+(Provocar)
+
+Provocar permite ao bardo, por meio de sua música,
+incitar uma criatura a atacar outra, gerando caos
+entre os inimigos. É uma das habilidades mais 
+dos bardos e depende totalmente de Musicalidade.
+A habilidade é ativada pelo gump de skills.
+
+
+// Botões para navegação
+[DIALOG d_Provocation BUTTON]
+
+ON=0
+
+sDIALOG d_skills 2

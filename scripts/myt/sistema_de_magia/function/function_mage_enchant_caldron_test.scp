@@ -1,0 +1,49 @@
+//*****************************************************************************
+// Arquivo: function_mage_enchant_caldron_test.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:25.779Z
+[FUNCTION mage_enchant_caldron_test]
+//serv.log [ENCANTAMENTO] Usando caldeirao: <tag.name> (<account> - <uid>) encantando <ctag0.mage.gem> (<uid.<ctag0.mage.gem>.name>)
+obj=<findid.i_mry_fazitem>
+local.dif=<obj.tag.dif2>
+local.skill=<obj.tag.skill>
+//serv.log [ENCANTAMENTO] <local.skill>: <dlocal.dif>
+
+//Determina custos
+local.mana=<obj.tag.mana>
+local.cost=<obj.tag.skill2>
+//serv.log [ENCANTAMENTO] mana: <dlocal.mana> (Custa <dlocal.cost> <local.skill>)
+
+//consome mana e skill do mago e testa a skill
+local.manaOK=1
+local.skillOK=1
+
+IF (<mage_consumeMana <local.mana>>)
+ local.manatest=1
+ELSE
+ local.manatest=0
+ENDIF
+local.manaOK=<local.manaOK>&<local.manatest>
+local.test=<eval ( (<alchemy>*2) + (<uid.<uid>.<local.skill>>*8) )/10>
+local.skillOK=<local.skillOK>&<belltest <local.test>,<eval <local.dif>*10>>
+if (<local.cost>)
+ try UID.<uid>.<local.skill> = <UID.<uid>.<local.skill>>-<local.cost>
+ skill_init
+endif
+//serv.log [ENCANTAMENTO] TESTE skill: <dlocal.skillOK> - mana:<dlocal.manaOK>
+
+//precisa testar reags da magia?
+local.reagsOK=1
+//if (<ctag0.mage.enchant_spell>)
+// if (<restest <SERV.SPELL.<ctag0.mage.enchant_spell>.resources>>)
+//  consume <SERV.SPELL.<ctag0.mage.enchant_spell>.resources>
+// else
+//  local.reagsOK=0
+// endif
+//endif
+
+IF (<local.manaOK> && <local.skillOK> && <local.reagsOK>)
+ return 1
+else
+ return 0
+endif

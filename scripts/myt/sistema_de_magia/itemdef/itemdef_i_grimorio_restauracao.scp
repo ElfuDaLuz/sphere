@@ -1,0 +1,16 @@
+//*****************************************************************************
+// Arquivo: itemdef_i_grimorio_restauracao.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:14.677Z
+[ITEMDEF i_grimorio_restauracao]
+id=i_spellbook_paladin
+name=grimorio de restauracao
+type=t_grimorio
+CATEGORY=MyT - Provisions - Alchemy & Magic
+SUBSECTION=Magical Items
+DESCRIPTION=restauracao
+
+on=@dclick
+src.ctag.mage_skill=skill_focus
+src.SDIALOG d_spellbook 1
+return 1

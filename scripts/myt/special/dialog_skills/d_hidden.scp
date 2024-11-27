@@ -1,0 +1,77 @@
+
+// Arquery - Diálogo de Habilidade
+[DIALOG d_hidden]
+//... Code for the dialog layout goes here ...
+100,75
+page 0
+resizepic 50 31 2620 500 400 // Fundo da página 0
+checkertrans 55 38 490 385 // Transparência para fundo
+gumppic 0 0 10400 // Gump de fundo
+gumppic 0 160 10401 // Gump de imagem 1
+gumppic 0 356 10402 // Gump de imagem 2
+gumppic 518 -2 10410 // Gump de barra superior
+gumppic 518 160 10411 // Gump de barra lateral
+gumppic 518 356 10412 // Gump de rodapé
+gumppic 217 45 2440 // Gump do título
+text 232 48 48 0  Noites Sombrias Shard // Título do servidor
+resizepic 92 87 2620 416 310 // Fundo do conteúdo
+
+page 1
+gumppic 125 120 131 // Exemplo de ícone de habilidade 350x150
+text 266 100 48 1
+text 120 280 2497 2
+text 120 300 2497 3
+text 120 320 2497 4
+text 120 340 2497 5
+text 120 360 2497 6
+button 100 400 4014 4016 1 1 0 Pagina Principal
+button 470 400 4014 4016 1 1 1 Pagina 2
+page 2
+text 120 100 2497 7
+text 120 120 2497 8
+text 120 140 2497 9
+text 120 200 2497 10
+text 120 220 2497 11
+text 120 260 1371 12
+text 120 300 400 13
+text 120 320 400 14
+text 120 340 400 15
+
+
+button 100 400 4014 4016 1 1 1
+
+[DIALOG d_hidden TEXT]
+Noites Sombrias Shard
+
+(Camuflagem)
+
+Hiding permite que o personagem se esconda nas sombras,
+sendo útil para ladrões e aventureiros em situações perigosas.
+A chance de sucesso depende da habilidade do jogador e da 
+luminosidade do ambiente. Para usá-la, selecione a runa da
+skill no gump e aguarde o teste.
+
+Restrições:
+
+Não é possível se esconder com fontes de luz 
+(tochas, lampiões) ou sob efeito de veneno.
+Não pode se esconder montado em criaturas.
+Em dungeons ou lugares sem luz, a skill é mais eficaz.
+Tabela de luminosidade:
+
+Entre 5h e 19h: exige 50% de habilidade.
+Entre 6h e 18h: exige 70% de habilidade.
+Entre 7h e 17h: exige 90% de habilidade.
+
+
+// Botões para navegação
+[DIALOG d_hidden BUTTON]
+
+ON=0
+
+sDIALOG d_skills 0
+
+ON=1
+
+sDIALOG d_hidden 1
+

@@ -1,0 +1,19 @@
+//*****************************************************************************
+// Arquivo: defname_mage_system.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:34.980Z
+[DEFNAME MAGE_SYSTEM]
+MAGE_SELF               1
+MAGE_WAND               2
+MAGE_GEM                3
+MAGE_SCROLL             4
+
+MAGE_SPELL_KNOWN        1
+MAGE_SPELL_UNKNOWN      0
+
+MAGE_LEARN_RATIO        16
+MAGE_LEARN_OFFSET       5
+MAGE_LEARN_DECAY        60*60*24*3
+
+MAGE_LEARNING           1
+MAGE_KNOWN              2

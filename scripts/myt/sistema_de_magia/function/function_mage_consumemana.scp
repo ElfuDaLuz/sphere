@@ -1,0 +1,17 @@
+//*****************************************************************************
+// Arquivo: function_mage_consumemana.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:38.003Z
+[FUNCTION mage_consumeMana]
+if (<mana> < <argn>)
+ mana=0
+else
+ mana -= <argn>
+endif
+return <mana>
+
+//***********************************************************
+// mage_clearTags
+//***********************************************************
+//Apaga todas as tags referentes a castar magias
+//Usa-se tags pois ctags não são permitidas em NPCs.

@@ -1,0 +1,25 @@
+//*****************************************************************************
+// Arquivo: function_mage_getinclearning.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:05.576Z
+[FUNCTION mage_getIncLearning]
+//Custo da magia em sí (0~60)
+local.cost=<BETWEEN 0,60,<strarg <SERV.SPELL.<argv[0]>.skillreq>>,125.0>
+
+//Bônus pela skill do playa (-25~0)
+local.cost -= <BETWEEN 0,25,<src.<DEF.Skill_<streat <SERV.SPELL.<argv[0]>.skillreq>>>>,1250>
+
+//Modificador por Inscription (-25~30)
+local.cost -= <BETWEEN -30,25,<src.Inscription>,1250>
+
+//Modificador por spells sendo aprendidas (+3 x spells)
+local.cost += <eval 3*(<mage_countLearningSpells>-1)>
+
+//Minimizar em 5
+local.cost = <MAXIMUM <DEF.MAGE_LEARN_OFFSET>,<local.cost>>
+
+return <local.cost>
+
+//***********************************************************
+// mage_learnSpell <spell>,[<value>]
+//***********************************************************

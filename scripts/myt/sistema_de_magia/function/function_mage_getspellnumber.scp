@@ -1,0 +1,23 @@
+//*****************************************************************************
+// Arquivo: function_mage_getspellnumber.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:00.518Z
+[FUNCTION mage_GetSpellNumber]
+//Retorna o número da spell <args>
+
+if (<IsNum <argv0>>)
+ if <SERV.SPELL.<argn>>
+  return <argn>
+ endif
+endif
+
+if (<hval <DEF.<argv0>>&0ca000000>!=0ca000000)
+ //sysmessageyellow Nao eh magia.
+ return 0
+endif
+return <eval <argv0>^0ca000000>
+
+//***********************************************************
+// mage_loadSpells
+//***********************************************************
+//Carrega as magias do jogador <default> da DB para a lista local.

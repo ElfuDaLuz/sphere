@@ -1,0 +1,47 @@
+//*****************************************************************************
+// Arquivo: function_make_chanted_gem.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:24.770Z
+[FUNCTION make_chanted_gem]
+obj=<ctag.mage.gem>
+
+//O item ainda existe?
+if (<obj.amount> > 1) || (<obj.topobj>!=<UID>) || (!<obj.uid>)
+ damage 30,<DEF.dam_god>,<UID>
+ sysmessagered Voce tentou perturbar o Eter!
+ EFFECT 1 0 0 16 0
+ SFX <hval <DEF.SND_THUNDER>>
+ return 1
+endif
+
+
+//Eh uma gema?
+if (<obj.type>==t_gem_stoned)
+ //Pedra lapidada virando gema?
+ if (<obj.tdata2>)
+  newitem <obj.tdata2>
+  new.bounce
+  obj.decrement
+  obj=<new>
+ else
+  //Gema sendo encantada?
+  obj.name=Gema de <strarg <obj.name>>
+ endif
+ obj.more2=<ctag0.mage.power>            //Adiciona cargas ou bônus
+ obj.attr=021                            //identifyed and magic
+ //Vai colocar uma magia nela?
+ if (<ctag0.mage.enchant_spell>)
+  obj.type=t_wand                        //Troca o type para trigar magia 
+  obj.morex=<ctag0.mage.enchant_spell>   //Guarda a magia
+ endif
+elif (<obj.layer>)
+ obj.more2 += <ctag0.mage.power>        //Adiciona cargas ou bônus
+ if (<obj.more2> > 12)
+  obj.more2=12
+ endif
+ obj.attr=021                           //identifyed and magic
+ obj.morex=<ctag0.mage.enchant_spell>   //Guarda a magia
+endif
+obj.updatex                             //Troca ToolTip
+sysmessagegreen Voce encantou uma <obj.name> com sucesso! 
+mage_cleartags

@@ -1,0 +1,144 @@
+
+// Arquery - Diálogo de Habilidade
+[DIALOG d_Snooping]
+//... Code for the dialog layout goes here ...
+100,75
+page 0
+resizepic 50 31 2620 500 400 // Fundo da página 0
+checkertrans 55 38 490 385 // Transparência para fundo
+gumppic 0 0 10400 // Gump de fundo
+gumppic 0 160 10401 // Gump de imagem 1
+gumppic 0 356 10402 // Gump de imagem 2
+gumppic 518 -2 10410 // Gump de barra superior
+gumppic 518 160 10411 // Gump de barra lateral
+gumppic 518 356 10412 // Gump de rodapé
+gumppic 217 45 2440 // Gump do título
+text 232 48 48 0  Noites Sombrias Shard // Título do servidor
+resizepic 92 87 2620 416 310 // Fundo do conteúdo
+
+page 1
+text 262 100 48 1
+text 120 280 2497 2
+text 120 300 2497 3
+text 120 320 2497 4
+text 120 340 2497 5
+text 120 360 2497 6
+
+
+// Icone ou imagem cliloc
+gumppic 125 120 127 // Exemplo de ícone de habilidade 350x150
+
+button 100 400 4014 4016 1 1 0
+
+button 470 400 4014 4016 1 1 1
+
+
+page 2
+text 100 100 2497 7
+text 100 120 2497 8
+text 100 140 2497 9
+text 100 160 2497 10
+text 100 180 2497 11
+text 100 200 2497 12
+text 100 220 2497 13
+text 100 240 2497 14
+text 100 260 2497 15
+text 100 280 2497 16
+text 100 300 2497 17
+text 100 320 2497 18
+text 100 340 2497 19
+button 100 400 4014 4016 1 1 0 Pagina Principal
+button 470 400 4014 4016 1 1 3 // Pagina 2
+page 3
+text 100 100 2497 20
+text 100 120 2497 21
+text 100 140 2497 22
+text 100 160 2497 23
+text 100 180 2497 24
+text 100 200 2497 25
+text 100 220 2497 26
+text 100 240 2497 27
+text 100 260 2497 28
+text 100 280 2497 29
+text 100 300 2497 30
+text 100 320 2497 31
+
+
+button 100 400 4014 4016 1 1 1 Pagina Principal
+button 470 400 4014 4016 1 1 4 // Pagina 3
+[DIALOG d_Snooping TEXT]
+Noites Sombrias Shard
+
+(Abrir Bolsas)
+
+Permite abrir a bolsa de outro personagem para visualizar
+e possivelmente roubar itens com Stealing. Funciona em
+conjunto com Stealing, que sozinho rouba aleatoriamente.
+Para usar, aproxime-se, abra o paperdoll do alvo e clique duas
+vezes na bolsa. Repetidas tentativas aumentam a dificuldade.
+
+Usando snooping:
+
+Roubo: Teste de Dificuldade
+
+O ladrão deve passar num teste para acessar itens.
+A dificuldade do roubo é comparada à skill do ladrão.
+
+Cálculo da Dificuldade
+
+A dificuldade total é a soma dos fatores abaixo:
+
+Luz: varia de 0% a 30%. Em escuridão total,
+dificuldade é 0%. Em luz total, é 30%.
+
+Destreza do Alvo: varia de 0% a 50%. Um alvo com
+0 de destreza soma 0%, com 50 soma 25%, e com 100
+soma 50% à dificuldade.
+
+Skill Snooping do Alvo: varia de 0% a 20%. Um alvo
+sem Snooping é 0%. Um mestre (100% Snooping) soma 20%.
+
+Modificadores Especiais
+
+Alvo é um guarda NPC: +50% de dificuldade.
+Alvo é um NPC não-guarda: +10% de dificuldade.
+Ladrão escondido: -30% de dificuldade (bônus).
+Sendo Pego
+
+Falhar no teste de Snooping pode resultar em agressão,
+alerta dos guardas ou expulsão da cidade.
+
+Guardas
+
+Se guardas pegam o ladrão, eles o agridem e removem seu capuz.
+
+NPCs ou Jogadores
+
+A força da vítima é testada contra a do ladrão. Se a
+vítima vence, ela remove o capuz do ladrão.
+
+Desencapuzado na Cidade
+
+Se o ladrão falhar e ficar sem capuz em uma cidade, ele
+será banido até que o conselho o remova da lista de inimigos.
+
+
+// Botões para navegação
+[DIALOG d_Snooping BUTTON]
+
+ON=0
+
+sDIALOG d_skills 0
+
+
+ON=1
+
+DIALOG d_Snooping 2
+
+ON=2
+
+DIALOG d_Snooping 2
+
+ON=3
+
+DIALOG d_Snooping 3

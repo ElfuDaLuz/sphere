@@ -1,0 +1,10 @@
+//*****************************************************************************
+// Arquivo: typedef_t_scroll.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:10.640Z
+[TYPEDEF t_scroll]
+on=@Dropon_item
+IF (<argo.type>==t_spellbook) || (<argo.type>==t_spellbook_necro) || (<argo.type>==t_spellbook_arcanist) || (<argo.type>==t_spellbook_pala) || (<argo.type>==t_wand)
+ src.sysmessageyellow Use a skill Inscription para aprender uma magia a partir de um pergaminho
+ return 1
+endif

@@ -1,0 +1,157 @@
+
+
+
+
+
+
+// Arquery - Diálogo de Habilidade
+[DIALOG d_medit]
+//... Code for the dialog layout goes here ...
+100,75
+page 0
+resizepic 50 31 2620 500 400 // Fundo da página 0
+checkertrans 55 38 490 385 // Transparência para fundo
+gumppic 0 0 10400 // Gump de fundo
+gumppic 0 160 10401 // Gump de imagem 1
+gumppic 0 356 10402 // Gump de imagem 2
+gumppic 518 -2 10410 // Gump de barra superior
+gumppic 518 160 10411 // Gump de barra lateral
+gumppic 518 356 10412 // Gump de rodapé
+gumppic 217 45 2440 // Gump do título
+text 232 48 48 0  Noites Sombrias Shard // Título do servidor
+resizepic 92 87 2620 416 310 // Fundo do conteúdo // 416x310 Tamanho do gump
+
+page 1
+text 237 100 48 1
+gumppic 125 120 122 
+text 120 280 2497 2 //Maximo de caracteres por linha 60
+text 120 300 2497 3
+text 120 320 2497 4
+text 120 340 2497 5
+button 100 400 4014 4016 1 1 0 Pagina Principal
+button 470 400 4014 4016 1 1 1 Pagina 2
+
+page 2
+gumppic 110 120 77 
+text 280 130 2497 6
+text 280 150 2497 7
+text 280 170 2497 8
+text 280 190 2497 9
+text 120 210 2497 10
+text 120 230 2497 11
+text 120 250 2497 12
+
+button 100 400 4014 4016 1 1 1 Pagina Principal
+button 470 400 4014 4016 1 1 3 Pagina 3
+
+
+text 120 270 2497 13
+text 120 290 2497 14
+text 120 310 2497 15
+text 120 330 2497 16
+text 120 350 2497 17
+
+
+page 3
+gumppic 320 300 77 
+text 120 100 2497 18
+text 120 120 2497 19
+text 120 140 2497 20
+text 120 180 2497 21
+text 120 200 1371 22
+text 120 220 400 23
+text 120 240 400 24
+text 120 260 400 25
+text 120 280 400 26
+text 120 300 400 27
+text 120 320 400 28
+button 100 400 4014 4016 1 1 2 Pagina Principal
+button 470 400 4014 4016 1 1 4 Pagina 3
+
+page 4
+gumppic 320 300 77 
+text 120 100 2497 29
+
+text 120 120 1371 30
+text 120 140 400 31
+text 120 180 400 32
+text 120 200 400 33
+text 120 220 400 34
+text 120 240 400 35
+text 120 260 400 36
+text 120 280 400 37
+
+
+button 100 400 4014 4016 1 1 3 Pagina Principal
+
+
+// Descrição da classe de Arquery
+[DIALOG d_medit TEXT]
+Noites Sombrias Shard
+
+Meditation (Meditação)
+
+Esta habilidade representa o potencial de um personagem
+de recuperar mana rapidamente através de profunda
+concentração. Essencial para magos e aprendizes, que
+precisam praticar suas magias, tendo uma reserva rápida.
+
+Para usar Meditation, acesse a runa 
+da skill no gump de skills e fique 
+parado para que ela faça efeito. Ao
+utilizar Meditation, um jogador pode
+recuperar um ponto de mana e um de stamina a cada 0,2 a 
+4,5 segundos, dependendo de Meditation e sua inteligência.
+
+Esta skill não está restrita a magos. Outras classes também 
+gastam mana para golpes especiais e stamina para correr e 
+mover objetos pesados.
+
+Enquanto estiver meditando, você não poderá falar,
+executar magias, usar itens, andar, usar outras skills ou
+lutar, pois isso cessaria a meditação por desconcentração.
+
+Regeneração de Mana/Stamina: Seus pontos de mana e
+stamina serão preenchidos em 2 min a 8 seg, conforme a
+tabela.
+
+Tempo para Recuperação Total de Mana
+Meditation        Tempo
+0.0             2 min
+25.0            1 min 37 seg
+50.0            1 min 15 seg
+75.0            52 seg
+100             30 seg
+125             8 seg
+
+Modificador de Tempo com Inteligência
+Inteligência    	Tempo
+20	          16 seg
+40	          12 seg
+60	          8 seg
+80	          4 seg
+100	          0
+120	          4 seg
+
+[DIALOG d_medit BUTTON]
+
+ON=0
+
+sDIALOG d_skills 0
+
+ON=1
+
+DIALOG d_medit 2
+
+ON=2
+
+DIALOG d_medit 1
+
+ON=3
+
+DIALOG d_medit 3
+
+ON=4
+
+DIALOG d_medit 4
+

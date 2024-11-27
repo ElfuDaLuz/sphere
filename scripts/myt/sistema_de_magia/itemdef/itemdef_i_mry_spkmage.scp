@@ -1,0 +1,20 @@
+//*****************************************************************************
+// Arquivo: itemdef_i_mry_spkmage.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:16.696Z
+[ITEMDEF i_mry_spkmage]
+id=0181d
+name=Spk_mage
+type=t_eq_script
+layer=layer_special
+weight=0
+
+ON=@equip
+cont.dspeech +spk_mage
+
+on=@unequip
+cont.dspeech -spk_mage
+
+on=@timer
+remove
+return 1

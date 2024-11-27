@@ -1,0 +1,17 @@
+//*****************************************************************************
+// Arquivo: typedef_t_grimorio.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:11.652Z
+[TYPEDEF t_grimorio]
+//compatibilidade com sistema de vendas
+on=@dclick
+if (<link>==04fffffff) || (!<link.instances>)
+ //livro sem dono
+ if (<src.uid>==<topobj>)
+  link=<src.uid>
+  src.sysmessageorange Este <name> agora pertence a voce.
+ endif
+endif
+src.mage_loadSpells
+src.cTAG.MAGE_GRIMORIO=<uid>
+return 0

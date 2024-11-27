@@ -1,0 +1,19 @@
+//*****************************************************************************
+// Arquivo: function_targ_correctskills.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:39.912Z
+[FUNCTION Targ_CorrectSkills]
+if !(<argo>)
+ sysmessageyellow Seleciona o filho da puta:
+ TARGETF Targ_CorrectSkills
+else
+ if (<argo.skilltotal> > <argo.TAG0.skill_maxSkillSumValue>)
+  local.s=0
+  WHILE ( (<argo.skilltotal> > <argo.TAG0.skill_maxSkillSumValue>) && (<local.s> < 55) )
+   argo.<dlocal.s>=0
+   local.s += 1
+  END
+  argo.timerf 2,sysmessagered Sua skill tava muito alta, champs.
+  argo.timerf 3,sysmessagered Foi automaticamente passada para o maximo permitido.
+ endif
+endif

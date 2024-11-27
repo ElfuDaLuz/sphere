@@ -1,0 +1,9 @@
+//*****************************************************************************
+// Arquivo: function_mage_forgetspell.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:02.535Z
+[FUNCTION mage_forgetSpell]
+local.spellid=<mage_GetSpellNumber <argv0>>
+
+DB.EXECUTE="DELETE FROM spellbooks WHERE player=<dUID> AND spellid=<dlocal.spellid>"
+mage_loadSpells

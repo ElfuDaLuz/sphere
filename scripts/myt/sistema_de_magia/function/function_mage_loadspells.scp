@@ -1,0 +1,18 @@
+//*****************************************************************************
+// Arquivo: function_mage_loadspells.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:01.532Z
+[FUNCTION mage_loadSpells]
+DB.QUERY="SELECT spellid FROM spellbooks WHERE player=<dUID> ORDER BY diff ASC;"
+tag.spells=;<SERV.SPELL.<DB.ROW.0.spellid>.defname>;
+for r 1 <eval <DB.ROW.NUMROWS>-1>
+ if (!<IsEmpty <DB.ROW.<dlocal.r>.spellid>>)
+	tag.spells .=<SERV.SPELL.<DB.ROW.<dlocal.r>.spellid>.defname>;
+	serv.log <SERV.SPELL.<DB.ROW.<dlocal.r>.spellid>.defname>
+ endif
+end
+
+//***********************************************************
+// mage_forgetSpell <spell>
+//***********************************************************
+//Apaga uma dada magia da DB e carrega novamente a lista local para o jogador <default>

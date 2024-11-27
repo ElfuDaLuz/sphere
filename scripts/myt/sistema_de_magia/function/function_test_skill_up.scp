@@ -1,0 +1,22 @@
+//*****************************************************************************
+// Arquivo: function_test_skill_up.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:36.891Z
+[FUNCTION test_skill_up]
+if (<tag0.skill_test_time>)
+ local.eltime=<hval <serv.time>-<tag0.skill_test_time>>
+ local.extime=<hval <local.eltime>-10*60*60>
+ if (<local.extime> < 0)
+  sysmessagered Voce deve esperar mais <f_timestring <eval -<local.extime>/10>> para subir novamente uma skill.
+  return 1
+ endif
+endif
+list_new Escolha uma skill para subir 12.5 pontos:
+list_newCol 20,Skill
+cTAG.list_action=test_skill_apply_up
+cTAG.list_numItems=54
+cTAG.list_numPages=4
+for s 0 54
+ try cTAG.list_row<hval <local.s>+1>_01=<serv.skill.<dlocal.s>.name>
+end
+list_show 1

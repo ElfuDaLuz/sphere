@@ -1,0 +1,65 @@
+//*****************************************************************************
+// Arquivo: function_mage_enchant_altar_test_users.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:26.789Z
+[FUNCTION mage_enchant_altar_test_users]
+//serv.log [ENCANTAMENTO] Usando altar: <tag.name> (<account> - <uid>) encantando <ctag0.mage.gem> (<uid.<ctag0.mage.gem>.name>)
+
+//Determina o número de participantes
+ref1=<region.uid>
+local.users=1
+for u 2 8
+ if (<ref1.tag0.user_<dlocal.u>>)
+  local.users += 1
+ endif
+end
+//serv.log [ENCANTAMENTO] <dlocal.users> usuarios no altar
+
+//Determina o teste de skill para cada membro
+obj=<findid.i_mry_fazitem>
+local.actdif=<obj.tag.dif2>
+local.skill=<obj.tag.skill>
+local.dif=<eval <local.actdif>/<local.users>>
+//serv.log [ENCANTAMENTO] <local.skill>: <dlocal.actdif> (<dlocal.dif> para cada)
+
+//Determina custos para cada membro
+local.mana=<eval <obj.tag.mana>/<local.users>>
+local.cost=<obj.tag.skill2>
+//serv.log [ENCANTAMENTO] mana: <dlocal.mana> (Custa <eval <local.cost>/<local.users>> <local.skill> para cada)
+
+//consome mana e skill dos envolvidos e testa a skill
+local.manaOK=1
+local.skillOK=1
+for u 1 <local.users>
+ if (<UID.<ref1.tag0.user_<dlocal.u>>.ischar>)
+  IF (<UID.<ref1.tag0.user_<dlocal.u>>.mage_consumeMana <local.mana>>)  //QVAL não suportado aqui
+   local.manatest=1
+  ELSE
+   local.manatest=0
+  ENDIF
+  local.manaOK=<local.manaOK>&<local.manatest>
+  local.test=<eval <UID.<ref1.tag0.user_<dlocal.u>>.<local.skill>>>
+  local.skillOK=<local.skillOK>&<UID.<ref1.tag0.user_<dlocal.u>>.belltest <local.test>,<eval <local.dif>*10>>
+  if (<local.cost>)
+   try UID.<ref1.tag0.user_<dlocal.u>>.<local.skill> = <UID.<ref1.tag0.user_<dlocal.u>>.<local.skill>>-<eval <local.cost>/<local.users>>
+   UID.<ref1.tag0.user_<dlocal.u>>.skill_init
+  endif
+  //serv.log [ENCANTAMENTO] TESTE DO MAGO No <dlocal.u> :: skill: <dlocal.skillOK> - mana:<dlocal.manaOK>
+ endif
+end
+
+//precisa testar reags da magia?
+local.reagsOK=1
+//if (<ctag0.mage.enchant_spell>)
+// if (<restest <SERV.SPELL.<ctag0.mage.enchant_spell>.resources>>)
+//  consume <SERV.SPELL.<ctag0.mage.enchant_spell>.resources>
+// else
+//  local.reagsOK=0
+// endif
+//endif
+
+IF (<local.manaOK> && <local.skillOK> && <local.reagsOK>)
+ return 1
+else
+ return 0
+endif

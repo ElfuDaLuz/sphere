@@ -1,0 +1,19 @@
+//*****************************************************************************
+// Arquivo: itemdef_i_bau_teste_restauracao.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:32.851Z
+[ITEMDEF i_bau_teste_restauracao]
+NAME=Pergaminhos de restauracao
+ID=i_chest_metal
+TYPE=T_CONTAINER
+FLIP=1
+WEIGHT=20
+TEVENTS=t_spell_test_cont
+
+on=@create
+color=0809
+more1=20
+more2=0
+morex=150
+morey=169
+morez=60

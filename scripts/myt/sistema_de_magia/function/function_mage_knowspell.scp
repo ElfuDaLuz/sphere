@@ -1,0 +1,23 @@
+//*****************************************************************************
+// Arquivo: function_mage_knowspell.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:03.552Z
+[FUNCTION mage_KnowSpell]
+//Checa na DB local se o jogador conhece a dada spell
+DB.QUERY="SELECT spellid FROM spellbooks WHERE player=<dUID> AND spellid=<eval <mage_GetSpellNumber <argv0>>>;"
+RETURN <DB.ROW.NUMROWS>
+
+//*******************************************************************************
+//
+////////////////////////////Aprendizado de magias////////////////////////////////
+//
+//*******************************************************************************
+
+//***********************************************************
+// i_mry_learn_spell
+//***********************************************************
+//Memória que guarda que o <cont> está aprendendo a spell
+//more1 é a spell
+//more2 é quantos sucessos ele ainda precisa para aprender efetivamente a spell.
+//more2 inicial é <spell.skillreq>/<DEF.MAGE_LEARN_RATIO>
+//Some e deixa de aprender a spell quando correr o timer que é <DEF.MAGE_LEARN_DECAY>

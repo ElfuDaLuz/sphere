@@ -1,0 +1,243 @@
+/*******************************************************************************
+// d_humanos
+*******************************************************************************/
+
+[DIALOG d_humanos]
+120,75
+page 0
+resizepic 50 31 2620 500 400
+checkertrans 55 38 490 385
+gumppic 0 0 102497
+gumppic 0 160 10401
+gumppic 0 356 10402
+gumppic 518 -2 10410
+gumppic 518 160 10411
+gumppic 518 356 10412
+gumppic 217 45 2440
+dtext 235 48 48 Noites Sombrias Shard
+resizepic 92 87 2620 416 310
+text 280 93 48 1  // Título - Descrição Geral
+
+// Conteúdo da Página 0
+page 1 // Página 1
+text 120 120 2497 2
+text 120 136 2497 3
+text 120 152 2497 4
+text 120 168 2497 5
+text 120 184 2497 6
+text 120 200 2497 7
+
+text 120 226 48 8  // Título - Religião e Espiritualidade
+text 120 242 2497 9
+text 120 258 2497 10
+text 120 274 2497 11
+text 120 290 2497 12
+text 120 306 2497 13
+text 120 320 2497 14
+
+// Botões de navegação
+button 470 400 4005 4007 1 0 1 // Avançar para a página 1
+
+page 2 // Página 2
+text 120 120 2497 15 // Título - Costumes e Tradições
+text 120 136 2497 16
+text 120 152 2497 17
+text 120 168 2497 18
+text 120 184 2497 19
+text 120 200 2497 20
+text 120 216 2497 21
+
+text 120 242 2497 22 // Título - Hierarquia e Estrutura Social
+text 120 258 2497 23
+text 120 274 2497 24
+text 120 290 2497 25
+text 120 306 2497 26
+text 120 320 2497 27
+text 120 336 2497 28
+
+// Botões de navegação
+button 120 400 4014 4016 1 1 0 // Retroceder para a página 0
+button 470 400 4005 4007 1 1 2 // Avançar para a página 2
+
+page 3 // Página 3
+text 120 120 2497 29 // Título - Realeza
+text 120 136 2497 30
+text 120 152 2497 31
+text 120 168 2497 32
+text 120 184 2497 33
+
+text 120 210 48 34 // Título - Nobreza
+text 120 226 2497 35
+text 120 240 2497 36
+text 120 256 2497 37
+text 120 272 2497 38
+
+// Botões de navegação
+button 120 400 4014 4016 1 2 1 // Retroceder para a página 1
+button 470 400 4005 4007 1 2 3 // Avançar para a página 3
+
+page 4 // Página dos Elfos
+text 120 120 2497 39 // Título - Descrição Geral (Elfos)
+text 120 136 2497 40
+text 120 152 2497 41
+text 120 168 2497 42
+
+
+// Botões de navegação
+button 120 400 4014 4016 1 3 2 // Retroceder para a página 2
+button 470 400 4005 4007 1 3 4 // Avançar para a página 5 (Costumes dos Elfos)
+
+page 5
+text 120 120 48 43
+text 120 140 2497 44
+text 120 160 2497 45
+
+text 120 180 2497 46 
+text 120 200 2497 47
+text 120 220 2497 48
+text 120 240 48 49 
+text 120 260 2497 50 
+text 120 280 2497 51
+text 120 300 2497 52
+text 120 320 2497 53 
+text 120 340 2497 54
+text 120 360 2497 55
+
+// Botões de navegação
+button 120 400 4014 4016 1 3 3 // Retroceder para a página 2
+button 470 400 4005 4007 1 3 5 // Avançar para a página 5 (Costumes dos Elfos)
+
+page 6
+text 120 120 48 56
+text 120 140 2497 57
+text 120 160 2497 58
+text 120 180 2497 59
+text 120 200 2497 60
+
+text 120 220 48 61
+text 120 240 2497 62 
+text 120 260 2497 63
+text 120 280 2497 64
+text 120 300 2497 65
+text 120 320 2497 66
+text 120 340 48 67
+
+// Botões de navegação
+button 120 400 4014 4016 1 4 4 // Retroceder para a página 3 (Religião dos Elfos)
+button 470 400 4017 4019 1 3 -6 // Fechar diálogo
+
+
+// Texto para todas as páginas
+[DIALOG d_humanos TEXT]
+Descrição Geral  
+
+
+
+Raças
+humanos de Solaris, moldados por um profundo senso
+de comunidade e fé, encontram suas raízes no culto aos
+deuses Solaris e Solirin, representantes da luz, da 
+ordem e do progresso. Essa devoção não apenas guia 
+sua espiritualidade, mas também molda a organização
+social, a cultura e a política do reino.
+
+Religião e Espiritualidade
+A fé é o alicerce da sociedade humana em Solaris. 
+Solaris, o Justo, é venerado como patrono da 
+liderança, da justiça e dos paladinos. Seu símbolo,
+um sol radiante, decora templos e armaduras, 
+lembrando o compromisso com a ordem e a verdade.
+Já Solirin, o Errante, pai de Solaris, é 
+adorado por sábios e agricultores, associado 
+ao conhecimento, à criação e à agricultura. Juntos,
+eles representam o equilíbrio entre a liderança 
+justa e o progresso sustentável.
+
+O Templo Dourado de Solaris, localizado no coração 
+da capital, é um dos centros espirituais mais 
+importantes. Além disso, os Salões de Solirin, 
+nas áreas rurais, servem como locais de ensino 
+e celebração das colheitas, reforçando a fé em 
+tempos de trabalho árduo.
+
+Costumes e Tradições
+Os humanos seguem tradições que celebram sua 
+conexão com seus deuses. Durante o Festival 
+da Luz Eterna, por exemplo, lanternas mágicas 
+iluminam os céus, representando a orientação 
+de Solaris e o legado criativo de Solirin. Os 
+cavaleiros da Guarda Real juram fidelidade à 
+"Espada Solar," uma relíquia sagrada, 
+simbolizando sua devoção ao reino e aos deuses.
+
+Hierarquia e Estrutura Social
+A estrutura hierárquica de Solaris reflete a 
+ordem divina de Solirin. A Realeza, liderada 
+pelo Rei Athan de Luminara, é vista como a 
+encarnação da vontade dos deuses. A Nobreza 
+administra os feudos e lidera os exércitos, 
+enquanto o Clero Dourado interpreta os 
+desígnios divinos e organiza festivais
+e rituais sagrados.
+
+Elfos de Solaris
+
+Os elfos de Solaris, embora marcados por um passado trágico, 
+encontram força e esperança na veneração de Thalor, o 
+Guardião, o deus da natureza e da fertilidade. Sob sua  
+proteção, eles vivem em harmonia com os bosques e mantêm
+suas tradições ancestrais.
+
+Religião e Espiritualidade
+
+Thalor, representado por uma árvore majestosa, é o centro 
+espiritual dos elfos. Eles acreditam que sua bênção protege
+a floresta e seus habitantes. Rituais sagrados, como o Ciclo 
+da Raiz e do Galho, são realizados sob árvores antigas, onde 
+oferendas de flores, frutos e artesanato são deixadas como 
+sinal de gratidão.
+
+Costumes e Tradições
+Após a tragédia da Noite Sombria, os elfos criaram o Ritual do 
+Renascimento das Chamas, onde queimam pequenos galhos para 
+simbolizar perdas passadas e novos começos. Cada vitória contra 
+inimigos do bosque é marcada com tatuagens discretas.
+
+Vida em Harmonia
+Apesar das dificuldades, os elfos de Solaris preservam sua 
+essência cultural, equilibrando delicadamente tradição e 
+resiliência. Com Thalor como guia, eles reconstroem suas 
+vidas, confiantes no futuro e em sua missão como guardiões 
+do equilíbrio natural.
+//Parte sem [DIALOG] ATÉ AQUI
+
+
+[DIALOG d_humanos BUTTON]
+ON=0
+// Primeira pagina
+DIALOG d_humanos 1
+
+ON=1
+// Segunda
+DIALOG d_humanos 2
+
+ON=2
+// terceira
+DIALOG d_humanos 3
+
+ON=3
+// quarte
+DIALOG d_humanos 4
+
+ON=4
+// quinta
+DIALOG d_humanos 5
+
+ON=5
+// quinta
+DIALOG d_humanos 6
+
+// Comando de fechamento geral
+ON=-6
+
+SRC.DIALOGCLOSE d_humanos

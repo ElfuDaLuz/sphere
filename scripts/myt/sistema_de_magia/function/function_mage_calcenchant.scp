@@ -1,0 +1,221 @@
+//*****************************************************************************
+// Arquivo: function_mage_calcenchant.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:09.633Z
+[FUNCTION mage_CalcEnchant]
+
+//Mana inicial
+doswitch <ctag0.mage.power>
+ local.mana 0
+ local.mana 13
+ local.mana 20
+ local.mana 33
+ local.mana 49
+ local.mana 65
+ local.mana 97
+ local.mana 130
+ local.mana 195
+ local.mana 260
+ local.mana 325
+ENDDO
+
+//Dif inicial
+doswitch <ctag0.mage.power>
+ local.dif 0
+ local.dif 30
+ local.dif 39
+ local.dif 43
+ local.dif 65
+ local.dif 83
+ local.dif 96
+ local.dif 125
+ local.dif 175
+ local.dif 200
+ local.dif 250
+ENDDO
+
+//Custo em skill inicial
+doswitch <ctag0.mage.power>
+ local.skill 0
+ local.skill 0
+ local.skill 0
+ local.skill 0
+ local.skill 0
+ local.skill 0
+ local.skill 3
+ local.skill 7
+ local.skill 8
+ local.skill 10
+ local.skill 50
+ENDDO
+
+//Tempo para fazer
+doswitch <ctag0.mage.power>
+ local.time 0
+ local.time 15
+ local.time 25
+ local.time 35
+ local.time 47
+ local.time 62
+ local.time 78
+ local.time 80
+ local.time 80
+ local.time 80
+ local.time 80
+ENDDO
+
+IF (<ctag0.mage.enchant_spell>)
+ local.dif += <eval <strarg <SERV.SPELL.<ctag.mage.enchant_spell>.skillreq>>/30>
+ local.mana += <eval <SERV.SPELL.<ctag.mage.enchant_spell>.MANAUSE>/3>
+ELSE
+ if (<ctag0.mage_skill>==skill_magery)
+  ctag.mage_elem=Fogo
+ elif (<ctag0.mage_skill>==skill_necromancy)
+  ctag.mage_elem=Veneno
+ elif (<ctag0.mage_skill>==skill_focus)
+  ctag.mage_elem=Energia
+ elif (<ctag0.mage_skill>==skill_spellweaving)
+  ctag.mage_elem=Gelo
+ else
+  ctag.mage_elem=Fisico
+ endif
+ENDIF
+
+//Formata texto para gump
+local.text=Resumo:<DEF.BR>
+if (!<ctag0.mage.power>)
+ local.text .= Selecione magia ou bonus.
+ return 0
+endif
+local.text .= <DEF.BFONT_SIZE3><DEF.BFONT_BLACK>Mana: <dlocal.mana><DEF.BR>
+local.text .= Dificuldade: <dlocal.dif>.0<DEF.BR>
+if (0<local.skill>)
+ local.text .= Custo: <fval <local.skill>> <serv.skill.<ctag0.mage_skill>.name><DEF.BR>
+endif
+
+IF (<ctag0.mage.enchant_spell>)
+ local.resc=<f_count_resources <SERV.SPELL.<ctag0.mage.enchant_spell>.RESOURCES>>
+ local.res=<serv.itemdef.<streat <f_strip_resources 1,<SERV.SPELL.<ctag0.mage.enchant_spell>.RESOURCES>>>.name>
+ if (<local.resc> > 1)
+  for r 2 <dlocal.resc>
+   local.res .=", <serv.itemdef.<streat <f_strip_resources <dlocal.r>,<SERV.SPELL.<ctag0.mage.enchant_spell>.RESOURCES>>>.name>"
+  end
+ endif
+ local.text .= Reagentes: <local.res>
+elif (!<uid.<ctag0.mage.gem>.layer>)
+ local.text .= Somente para encantar itens. +<dctag0.mage.power> de dano em armas ou +<dctag0.mage.power> de resistencia em <ctag.mage_elem>.
+else
+ local.text .= Selecione magia para sua varinha.
+ local.cando=0
+ return 0
+endif
+
+//Decide se o char pode fazer ou não
+local.cando=1
+if <ctag0.mage.enchant_spell>
+ IF !(<restest <SERV.SPELL.<ctag0.mage.enchant_spell>.RESOURCES>>)
+  local.cando=0
+ ENDIF
+endif
+if (!<ctag0.mage.power>)
+ local.cando=0
+endif
+
+//*************************************************************
+// mage_SpellCast <argn1>, <argn2>, <argn3> (do @SpellCast)
+//*************************************************************
+
+[COMMENT mage_SpellCast]
+IF (<IsGM>)
+ return 6
+ENDIF
+
+local.skill=<src.<serv.skill.<DEF.<streat <SERV.SPELL.<argn1>.skillreq>>>.key>>
+
+
+
+
+IF <tag0.mage_source>==<DEF.MAGE_SELF>  //Mago castando via WoP
+
+ if !<tag0.mage_know>                   //Não sabe a magia
+   src.sysmessageyellow voce sibila algumas palavras mas nao obtem nenhum resultado.
+   argn2=1500    //faz a magia falhar se castar por WOP sem conhecer a magia (anti-meta)
+   //argn2=(<argn2>*125)/100
+ endif
+
+ELIF <tag0.mage_source>==<DEF.MAGE_SCROLL>//Mago castando via scroll
+
+ if <tag0.mage_know>                                                            //Sabe a magia
+  if (<inscription> <= <local.skill>)                                //se for usar o inscription, não ativa o bonus
+    argn2=(<strarg <SERV.SPELL.<argn1>.skillreq>>*10)/125                         //Bônus de 25%
+  endif
+  //  serv.log sabe a spell
+ endif
+
+  if (<inscription> > <local.skill>)   Se inscription for maior que skill de magia, usar inscription.
+   if (<skillcheck inscription <eval <strarg <SERV.SPELL.<argn1>.skillreq>>/10>>)
+    argn2=0      //Passou no teste com inscription
+   else
+    argn2=1500   //Não passou no teste de inscription
+   endif
+  else
+    if !<tag0.mage_know>           //se inscription não for alto e não sabe a magia
+    // serv.log nao sabe a spell
+       argn2=<eval <strarg <SERV.SPELL.<argn1>.skillreq>>/10>        //Barra a diff hard coded de t_scroll
+    endif
+  endif
+ENDIF
+
+tag.mage_actdiff=<argn2>
+//serv.log SPELLCAST s: <argn1> (<SERV.SPELL.<argn1>.name>) - d: <argn2> - ad: <argn3> - actdiff: <dtag.mage_actdiff>
+return 6
+
+//*************************************************************
+// mage_SpellSelect <argn1>, <argn2>, <argn3> (do @SpellSelect)
+//*************************************************************
+
+[COMMENT mage_SpellSelect] //existe uma duplicada dessa parte q é a que realmente esta ativa em events.scp em torno da linha 1100
+IF (<IsGM>)
+ return 6//Proceder como o de normal
+ENDIF
+IF (<tag0.mage_spellid>) && (<argn3>=2)//Foi cancelada e começada outra magia posteriormente?
+ mage_cleartags
+ argn3=3        //Começar a castar de novo
+ return 6
+ENDIF
+IF (<argn3>==2)         //sucesso. Passar para @skillsuccess
+ return 6
+ENDIF
+
+//Guarda se o char sabe a spell e quam é a spell
+tag.mage_know=<mage_knowSpell <argn1>>
+tag.mage_spellid=<argn1>
+//Define bônus/penalidade por modalidade de cast (WoP, wand/orb, scroll)
+if (<argo>==<uid>)      //Mago castando sozinho
+ tag.mage_source=<DEF.MAGE_SELF>
+ if !(<tag0.mage_know>)
+  argn2=(<argn2>*250)/100       //consimir 250% mais de mana
+ endif
+else
+ tag.mage_uid=<argo>            //Salva item
+ argn2=0                        //Castando por item. Não usar mana.
+ if (<argo.type>==t_wand)//Mago castando por varinha ou gema ou tem memory spk_mage (caso de polys)
+  tag.mage_source=<DEF.MAGE_WAND>
+ else
+  if (<argo.type>==t_SCROLL)//Mago castando por pergaminho
+   tag.mage_source=<DEF.MAGE_SCROLL>
+   if (!<tag0.mage_know>)//Se mago não sabe magia do pergaminho, gasta mana.
+    argn2=<SERV.SPELL.<argn1>.manause>
+   endif
+  endif
+ endif
+endif
+IF (<Mana> < <argn2>)
+ sysmessageyellow Falta-lhe mana suficiente para esta magia...
+ return 1
+endif
+tag.mage_mana=<argn2>
+//serv.log SPELLSELECT <argn1> (<SERV.SPELL.<argn1>.name>) - <argn2>
+return 6
+
+//////////////////////////////////////TYPEDEFS///////////////////////////////

@@ -1,0 +1,103 @@
+//*****************************************************************************
+// Arquivo: dialog_d_spellbook_button.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:21.742Z
+[DIALOG d_spellbook button]
+ON=0
+// Button 1
+src.ctag.mage_property=
+src.ctag.mage_page=
+src.ctag.mage_skill=
+src.ctag.mage_action=
+
+ON=1 999
+//Faz o mago executar a função <ctag.mage_action> com <argv[0]> da magia selecionada
+src.try <src.ctag.mage_action> <argn>
+src.ctag.mage_action=
+
+ON=1000
+// learning spells
+src.ctag.mage_property=<DEF.MAGE_LEARNING>
+src.ctag.mage_page=1
+src.SDIALOG d_spellbook 2
+
+ON=1001
+// known spells
+src.ctag.mage_property=<DEF.MAGE_KNOWN>
+src.ctag.mage_page=1
+src.SDIALOG d_spellbook 2
+
+ON=1002
+// pg-
+src.ctag.mage_page=<src.ctag0.mage_page>-1
+IF (!<src.ctag0.mage_page>)
+ src.ctag.mage_property=
+ src.SDIALOG d_spellbook 1
+ELSE
+ src.SDIALOG d_spellbook 2
+ENDIF
+
+ON=1003
+// pg+
+src.ctag.mage_page=<src.ctag0.mage_page>+1
+src.SDIALOG d_spellbook 2
+
+ON=1004
+//Mais poder
+IF (<ctag0.mage.power> < 10)
+ ctag.mage.power=<ctag0.mage.power>+1
+endif
+SDIALOG d_spellbook 3
+return 1
+
+ON=1005
+//Menos poder
+IF (<ctag0.mage.power> > 0)
+ ctag.mage.power=<ctag0.mage.power>-1
+endif
+SDIALOG d_spellbook 3
+return 1
+
+ON=1006
+//Add/Rem magia
+IF (!<ctag0.mage.enchant_spell>)
+ ctag.mage_action=mage_enchant_gem_select_spell         //Função que vai ser chamada quando a magia for selecionada
+ ctag.mage_property=<DEF.MAGE_KNOWN>            //Abrir o livro na parte de magias conhecidas
+ ctag.mage_page=1                               //Abrir o livro na página 1
+ SDIALOG d_spellbook 2                           //Abrir o livro
+ sysmessagegreen Selecione uma magia conhecida:
+else
+ ctag.mage.enchant_spell=
+ SDIALOG d_spellbook 3
+endif
+return 1
+
+ON=1007
+//Okay
+sysmessageyellow Voce comeca o encantamento.
+call mage_CalcEnchant
+obj=<findid.i_faz_item>
+obj.cleartags
+if (<ctag0.mage.enchant_spell>)
+ local.i=0
+ while <SERV.SPELL.<ctag0.mage.enchant_spell>.resources.<dlocal.i>.val>
+  obj.tag.res<dlocal.i>=<SERV.SPELL.<ctag0.mage.enchant_spell>.resources.<local.i>.key>
+  obj.tag.amt<dlocal.i>=<eval <SERV.SPELL.<ctag0.mage.enchant_spell>.resources.<local.i>.val>*<ctag0.mage.power>>
+  local.i += 1
+ end
+endif
+obj.tag.delay=<local.time>
+obj.tag.skill=<serv.skill.<ctag0.mage_skill>.name>
+obj.tag.skill2=<local.skill>
+obj.tag.dif=0
+obj.tag.dif2=<local.dif>
+obj.tag.mana=<local.mana>
+obj.tag.spell=<ctag0.mage.enchant_spell>
+obj.tag.power=<ctag0.mage.power>
+obj.tag.f_step=mage_enchant_gem_step
+obj.tag.item=1
+obj.tag.f_done=mage_enchant_gem_end
+obj.tag.abort=1
+src.fazitem
+sfx=05c1
+return 1

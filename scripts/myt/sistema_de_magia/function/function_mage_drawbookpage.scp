@@ -1,0 +1,77 @@
+//*****************************************************************************
+// Arquivo: function_mage_drawbookpage.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:17.702Z
+[FUNCTION mage_DrawBookPage]
+if (<ctag0.mage_property>==<DEF.MAGE_KNOWN>)
+DB.QUERY="SELECT spellid FROM spellbooks WHERE player=<eval <UID.<cTAG0.MAGE_GRIMORIO>.link>> AND skill=<eval <DEF.<ctag.mage_skill>>> ORDER BY diff ASC LIMIT <eval (<ctag.mage_page>-1)*2>, 3;"
+if (<DB.ROW.NUMROWS> > 0) {
+    local.spell1=<DB.ROW.0.spellid>
+if (<DB.ROW.NUMROWS> > 1) {
+    local.spell2=<DB.ROW.1.spellid>
+    
+ local.nextpage=<QVAL <DB.ROW.NUMROWS>==3?1:0>
+elif (<ctag0.mage_property>==<DEF.MAGE_LEARNING>)
+ call src.mage_GetLearningSpells
+endif
+
+//Pagina esquerda
+serv.log Spell1: <local.spell1>
+
+button 49 9 2205 2205 1 0 1002
+if (<eval <local.spell1>>)
+ dhtmlgump 82 8 112 35 0 0 <DEF.BFONT_SIZE5><DEF.BFONT_DBLUE><SERV.SPELL.<local.spell1>.name>//Nome da magia
+ if (!<IsEmpty <src.ctag.mage_action>>)//Se é necessário apertar a runa pra fazer alguma coisa (inscription, etc)
+  button 65 46 2472 2473 1 0 <dlocal.spell1>
+ endif
+ gumppic 60 41 <SERV.SPELL.<local.spell1>.RUNE_ITEM>// //Runa
+ dhtmlgump 107 41 88 41 0 0 <DEF.BFONT_SIZE4><mage_GetSpellRunes <local.spell1>>//WoP
+ gumppictiled 71 83 104 21 58//Separador de barra
+ //Pega os reags da lista e transforma em nomes. As função são do cictema_de_facas_especiais.scp
+ local.resc=<f_count_resources <SERV.SPELL.<local.spell1>.RESOURCES>>
+ local.res=<serv.itemdef.<streat <f_strip_resources 1,<SERV.SPELL.<local.spell1>.RESOURCES>>>.name>
+ if (<local.resc> > 1)
+  for r 2 <dlocal.resc>
+   local.res .=", <serv.itemdef.<streat <f_strip_resources <dlocal.r>,<SERV.SPELL.<local.spell1>.RESOURCES>>>.name>"
+  end
+ endif
+ dhtmlgump 57 90 142 70 0 0 <DEF.BFONT_SIZE5><DEF.BFONT_DBLUE>Reagentes:<DEF.BR><DEF.BFONT_SIZE3><DEF.BFONT_BLACK><local.res>//reagentes
+ if (<local.spell1_rest>)       //Se está aprendendo, mostrar quanto falta
+  dhtmlgump 57 160 140 35 0 0 <DEF.BFONT_SIZE2><DEF.BFONT_DBLUE>Restam <eval <mage_getIncLearning <local.spell1>>-<dlocal.spell1_rest>> tentativas e <f_timestring <local.spell1_time>>
+ else
+  dhtmlgump 57 160 140 42 0 0 <DEF.BFONT_SIZE5><DEF.BFONT_DBLUE>Mana:      <eval <SERV.SPELL.<local.spell1>.MANAUSE>><DEF.BR>Dificuldade:  <eval <strarg <SERV.SPELL.<local.spell1>.skillreq>>/10>
+ endif
+
+SRC.SYSMESSAGE spell1=<local.spell1>, spell2=<local.spell2>
+
+endif
+
+//Pagina direita
+local.spell2=<DB.ROW.1.spellid>
+serv.log Spell2: <local.spell2>
+if (<eval <local.spell2>>)
+ dhtmlgump 212 8 112 35 0 0 <DEF.BFONT_SIZE5><DEF.BFONT_DBLUE><SERV.SPELL.<local.spell2>.name>
+ if (!<IsEmpty <src.ctag.mage_action>>)//Se é necessário apertar a runa pra fazer alguma coisa (inscription, etc)
+  button 225 46 2472 2473 1 0 <dlocal.spell2>
+ endif
+ gumppic 220 41 <SERV.SPELL.<local.spell2>.RUNE_ITEM>//gumppic 60 41 2240
+ dhtmlgump 267 41 88 41 0 0 <DEF.BFONT_SIZE4><mage_GetSpellRunes <local.spell2>>
+ gumppictiled 231 83 104 21 58
+ //Pega os reags da lista e transforma em nomes. As função são do cictema_de_facas_especiais.scp
+ local.resc=<f_count_resources <SERV.SPELL.<local.spell2>.RESOURCES>>
+ local.res=<serv.itemdef.<streat <f_strip_resources 1,<SERV.SPELL.<local.spell2>.RESOURCES>>>.name>
+ if (<local.resc> > 1)
+  for r 2 <dlocal.resc>
+   local.res .=", <serv.itemdef.<streat <f_strip_resources <dlocal.r>,<SERV.SPELL.<local.spell2>.RESOURCES>>>.name>"
+  end
+ endif
+ dhtmlgump 217 90 142 70 0 0 <DEF.BFONT_SIZE5><DEF.BFONT_DBLUE>Reagentes:<DEF.BR><DEF.BFONT_SIZE3><DEF.BFONT_BLACK><local.res>
+ if (<local.spell2_rest>)       //Se está aprendendo, mostrar quanto falta
+  dhtmlgump 217 160 140 35 0 0 <DEF.BFONT_SIZE2><DEF.BFONT_DBLUE>Restam <eval <mage_getIncLearning <local.spell2>>-<dlocal.spell2_rest>> tentativas e <f_timestring <local.spell2_time>>
+ else
+  dhtmlgump 217 160 140 42 0 0 <DEF.BFONT_SIZE5><DEF.BFONT_DBLUE>Mana:      <eval <SERV.SPELL.<local.spell2>.MANAUSE>><DEF.BR>Dificuldade:  <eval <strarg <SERV.SPELL.<local.spell2>.skillreq>>/10>
+ endif
+ IF (<local.nextpage>)
+ button 321 8 2206 2206 1 0 1003
+endif
+

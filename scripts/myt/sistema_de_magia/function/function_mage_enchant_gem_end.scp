@@ -1,0 +1,25 @@
+//*****************************************************************************
+// Arquivo: function_mage_enchant_gem_end.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:23.762Z
+[FUNCTION mage_enchant_gem_end]
+//Determina se esta num altar
+if (STRMATCH(*_altar_magi*,<dspeech>))
+ local.can=<mage_enchant_altar_test_users>
+else
+ local.caldronOK=0
+ obj=<UID>
+ foritems 2
+  if (<type>==t_stew) && (<more2>==5)
+   local.can=<obj.mage_enchant_caldron_test>
+   more1=1
+  endif
+ end
+endif
+if (<local.can>)
+ sfx 05c2
+ make_chanted_gem
+else
+ sfx 0274
+ sysmessagered Voce falhou ao tentar encantar a pedra.
+endif

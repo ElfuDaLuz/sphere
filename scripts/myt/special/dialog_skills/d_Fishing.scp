@@ -1,0 +1,52 @@
+
+
+
+
+// Arquery - Diálogo de Habilidade
+[DIALOG d_Fishing]
+//... Code for the dialog layout goes here ...
+100,75
+page 0
+resizepic 50 31 2620 500 400 // Fundo da página 0
+checkertrans 55 38 490 385 // Transparência para fundo
+gumppic 0 0 10400 // Gump de fundo
+gumppic 0 160 10401 // Gump de imagem 1
+gumppic 0 356 10402 // Gump de imagem 2
+gumppic 518 -2 10410 // Gump de barra superior
+gumppic 518 160 10411 // Gump de barra lateral
+gumppic 518 356 10412 // Gump de rodapé
+gumppic 217 45 2440 // Gump do título
+text 232 48 48 0  Noites Sombrias Shard // Título do servidor
+resizepic 92 87 2620 416 310 // Fundo do conteúdo
+
+page 1
+text 272 100 48 1
+text 120 280 2497 2
+text 120 300 2497 3
+text 120 320 2497 4
+text 120 340 2497 5
+text 120 360 2497 6
+text 120 380 2497 7
+
+
+// Icone ou imagem cliloc
+gumppic 125 120 124 // Exemplo de ícone de habilidade 350x150
+button 100 400 4014 4016 1 1 0
+
+[DIALOG d_Fishing TEXT]
+Noites Sombrias Shard
+
+(Pescaria)
+
+Fishing, como o nome diz, e a skill utilizada para se 
+pescar. Precisa de um item pra ser ativada 
+(vara de pescar) e um corpo decente de água. Quanto 
+maior o valor da skill, maior a chance de se pescar
+peixes maiores e melhores.
+
+// Botões para navegação
+[DIALOG d_Fishing BUTTON]
+
+ON=0
+
+sDIALOG d_skills 2

@@ -1,0 +1,21 @@
+//*****************************************************************************
+// Arquivo: function_mage_fail.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:42.045Z
+[FUNCTION mage_fail]
+//Magery
+if <tag0.mage_source>==<DEF.MAGE_SCROLL>
+ uid.<tag.mage_uid>.decrement
+ sysmessageyellow O pergaminho se esfarelou em sua mao.
+endif
+mage_consumeMana <src.tag0.mage_mana>
+//serv.log [MAGE_FAIL] <account> falha <SERV.SPELL.<tag0.mage_spellid>.name>
+IF (<tag0.mage_know>)
+ mage_skillgain
+endif
+mage_cleartags
+
+//***********************************************************
+// mage_GetSpellRunes <magia>
+//***********************************************************
+//Retorna a palavra do poder para a spell <args>

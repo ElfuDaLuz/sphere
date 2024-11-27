@@ -1,0 +1,29 @@
+//*****************************************************************************
+// Arquivo: function_mage_enchant_gem_step.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:22.749Z
+[FUNCTION mage_enchant_gem_step]
+DORAND 5
+ anim=17
+ENDDO
+DORAND 10
+ BEGIN
+  EFFECT 1 0 0 16 0
+  SFX <hval <DEF.SND_THUNDER>>
+ ENDDO
+ EFFECT 3 i_fx_sparkle 0 32 0
+ENDDO
+DORAND 10
+ sfx 01f7
+ sfx 01EB
+ENDDO
+//Manter caldeirao certinho
+IF !<R0,5>
+ foritems 2
+  if (<defname>==i_bowl_stew) && (<more2>==5)
+   more1=120
+  elif (<defname>==i_campfire)
+   timer=120
+  endif
+ end
+endif

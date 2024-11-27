@@ -1,0 +1,19 @@
+//*****************************************************************************
+// Arquivo: itemdef_i_bau_teste_alteracao.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:33.858Z
+[ITEMDEF i_bau_teste_alteracao]
+NAME=Pergaminhos de alteracao
+ID=i_chest_metal
+TYPE=T_CONTAINER
+FLIP=1
+WEIGHT=20
+TEVENTS=t_spell_test_cont
+
+on=@create
+color=017C
+more1=20
+more2=0
+morex=250
+morey=269
+morez=60

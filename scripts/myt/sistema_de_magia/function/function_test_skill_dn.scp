@@ -1,0 +1,14 @@
+//*****************************************************************************
+// Arquivo: function_test_skill_dn.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:37.895Z
+[FUNCTION test_skill_dn]
+list_new Escolha uma skill para descer 12.5 pontos:
+list_newCol 20,Skill
+cTAG.list_action=test_skill_apply_dn
+cTAG.list_numItems=54
+cTAG.list_numPages=4
+for s 0 54
+ try cTAG.list_row<hval <local.s>+1>_01=<serv.skill.<dlocal.s>.name>
+end
+list_show 1

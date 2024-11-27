@@ -1,0 +1,23 @@
+//*****************************************************************************
+// Arquivo: function_mage_getlearningspells.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:18.710Z
+[FUNCTION mage_GetLearningSpells]
+local.i=0
+obj=<src.uid>
+FORCONTID i_mry_learn_spell
+ IF STRMATCH(<streat <SERV.SPELL.<more1>.skillreq>>,<obj.ctag.mage_skill>)
+  IF (<eval (<obj.ctag.mage_page>-1)*2>==<local.i>)
+   local.spell1=<more1>
+   local.spell1_rest=<more2>
+   local.spell1_time=<timer>
+  ELIF (<eval (<obj.ctag.mage_page>-1)*2>==<local.i>-1)
+   local.spell2=<more1>
+   local.spell2_rest=<more2>
+   local.spell2_time=<timer>
+  ELIF (<eval (<obj.ctag.mage_page>-1)*2>==<local.i>-2)
+   local.nextpage=1
+  ENDIF
+  local.i += 1
+ ENDIF
+END

@@ -1,0 +1,20 @@
+//*****************************************************************************
+// Arquivo: function_test_allspells.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:42.941Z
+[FUNCTION test_allspells]
+for s 100 300
+ if (<SERV.SPELL.<dlocal.s>>)
+	if (!<IsEmpty <SERV.SPELL.<dlocal.s>.defname>>)
+		//serv.log mage_addspell <SERV.SPELL.<dlocal.s>.defname>
+		src.mage_addspell <dlocal.s>
+		//serv.log mage_addspell <dlocal.s>
+	else
+	return 0
+	endif
+ endif
+ local.c += 1
+end
+mage_loadSpells
+sysmessageyellow Voce aprendeu <dlocal.c> magias.
+[EOF]

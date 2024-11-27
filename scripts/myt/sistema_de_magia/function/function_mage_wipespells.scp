@@ -1,0 +1,20 @@
+//*****************************************************************************
+// Arquivo: function_mage_wipespells.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:55.484Z
+[FUNCTION mage_wipeSpells]
+DB.QUERY="SELECT spellid FROM spellbooks WHERE player=<dUID>;"
+for w 0 <eval <DB.ROW.NUMROWS>>
+ if (!<IsEmpty <DB.ROW.<dlocal.w>.spellid>>)
+	local.spelldel=<DB.ROW.<dlocal.w>.spellid>
+	DB.EXECUTE="DELETE FROM spellbooks WHERE player=<dUID> AND spellid=<dlocal.spelldel>;"
+	//serv.log <DB.ROW.<dlocal.w>.spellid> 
+ endif
+end
+return 0
+//DB.QUERY="DELETE FROM spellbooks WHERE player=<eval <UID>>';"
+
+//***********************************************************
+// mage_initSpells [<spell>]
+//***********************************************************
+//Limpa todas as magias do player <default> e começa de novo

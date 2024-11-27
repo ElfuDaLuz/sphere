@@ -1,0 +1,23 @@
+//*****************************************************************************
+// Arquivo: itemdef_i_mry_learn_spell.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:04.560Z
+[ITEMDEF i_mry_learn_spell]
+id=i_deed
+name=Aprendendo magia
+type=t_eq_script
+layer=layer_special
+
+on=@create
+//color=memory_learnSpell               //Sim, o tipo de memoria fica no Color. Sempre foi assim desde o Sphere 0.54
+//attr=012
+
+on=@timer
+f_sendMessage <cont>,Voce nao consegue mais se lembrar o que tinha aprendido sobre <SERV.SPELL.<more1>.name>,028
+remove
+return 1
+
+//***********************************************************
+// mage_getIncLearning <spell>
+//***********************************************************
+//Retorna quantas vezes o char tem que acertar a magia para aprender

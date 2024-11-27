@@ -1,0 +1,17 @@
+//*****************************************************************************
+// Arquivo: function_mage_countlearningspells.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:07.603Z
+[FUNCTION mage_countLearningSpells]
+local.n=0
+FORCHARLAYER 30// memory_learnSpell
+ IF (<defname>==i_mry_learn_spell)
+  local.n += 1
+ ENDIF
+ENDFOR
+return <local.n>
+
+//***********************************************************
+// mage_findLearningSpell
+//***********************************************************
+//Retorna a UID da memoria de aprendizado de magia da magia <args>

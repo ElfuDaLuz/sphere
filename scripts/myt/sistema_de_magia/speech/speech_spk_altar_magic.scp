@@ -1,0 +1,41 @@
+//*****************************************************************************
+// Arquivo: speech_spk_altar_magic.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:29.826Z
+[SPEECH spk_altar_magic]
+on=Chantus Maliki
+obj=<region.uid>
+if (<obj.tag0.user_1>==<src.uid>)
+ src.mage_enchant_gem
+else
+ src.sysmessageorange <src.rec_fgetname <obj.tag0.user_1>> esta no comando do altar.
+ return 1
+endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//#################################################################################
+
+//                              ITENS DE TESTE
+
+//#################################################################################

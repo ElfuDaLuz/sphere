@@ -1,0 +1,70 @@
+//*****************************************************************************
+// Arquivo: function_mage_success.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:41.033Z
+[FUNCTION mage_success]
+
+IF (<IsGM>)
+ return 6
+ENDIF
+
+IF !<tag0.mage_spellid>
+ return 1
+endif
+
+//Teste de penalidade por andar
+if (!<IsEmpty <tag.mage_p>>)
+ local.penalty=<eval 4.5*<distance <tag.mage_p>>>
+ if (<local.penalty>)
+  local.penalty += <eval (<tag0.mage_actdiff>*10)-2.6>//Ajuste liear de -2.6 por causa de aflhas automáticas. Estamos testando 2x a magia desse jeito. Então o segundo teste (de penalidade por correr) deve ser mais brando pra não foder uma magia que já foi dada como sucesso.
+  local.skill=<streat <SERV.SPELL.<tag0.mage_spellid>.skillreq>>
+  TRY local.skill = <src.<eval <DEF.<local.skill>>&03fffffff>> //03fffffff=(~0c0000000) pega ID da skill e na sequencia o valor que o player tem
+  //serv.log SPELLSUCCESS: Penalidade por andar: <dlocal.penalty> (<dlocal.skill>)
+  if (!<BELLTEST <local.skill>,<local.penalty>>)
+   sysmessagered Voce andou de mais!
+   mage_consumeMana <tag.mage_mana>
+   mage_cleartags
+   action -1
+   return 0
+  endif
+ endif 
+endif
+
+// *TESTE DO BB*
+//if <tag0.mage_source>==<DEF.MAGE_SELF> && !<tag0.mage_know>
+// serv.log [mage_success] S: <tag0.mage_spellid> <SERV.SPELL.<tag0.mage_spellid>.name>
+// mage_learnSpell <tag0.mage_spellid>
+// endif
+
+if <tag0.mage_source>==<DEF.MAGE_WAND>
+ obj=<tag.mage_uid>
+ obj.more2 -= 1
+ obj.update
+ if <obj.more2> < 1
+  if <obj.layer>        //É wand, não gem
+   obj.morex=0
+   sysmessagered O poder de <obj.name> se esvaiu.
+   if !<IsEmpty <obj.tag.name>>
+    obj.name=<obj.tag.name>
+   endif
+  else                  //É gem
+   sysmessagered <obj.name> some sem deixar vestigios.
+   obj.timerf 1,decrement
+  endif
+ endif
+endif
+if <tag0.mage_source>==<DEF.MAGE_SCROLL>
+ uid.<tag.mage_uid>.decrement
+ sysmessageorange O pergaminho desintegra-se magicamente
+endif
+mage_consumeMana <tag.mage_mana>
+mage_skillgain
+//serv.log mage_success <SERV.SPELL.<tag0.mage_spellid>.name>
+TRIGGER @TownSpellSuccess,<DEF.TAT_AS_ARGN>,<tag0.mage_spellid>
+mage_cleartags
+return 6
+
+//***********************************************************
+// mage_fail
+//***********************************************************
+//chamado no @SKILLFAIL para skills Magery, Necromancy, Focus e SpellWeaving

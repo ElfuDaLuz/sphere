@@ -1,0 +1,22 @@
+//*****************************************************************************
+// Arquivo: plevel_6.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:36.992Z
+[PLEVEL 6]
+//Infelizmente, Anti-Dragazul
+xmage_initSpells
+xmage_KnowSpell
+xmage_addSpell
+xmage_learnSpell
+xmage_loadSpells
+xmage_forgetSpell
+
+//////////////////////////////////////FUNCTIONS///////////////////////////////
+
+
+////// Funções básicas utilizadas em todo o script ou chamadas em outras Events como e_geral.
+
+//***********************************************************
+// mage_sonsumeMana <mana>
+//***********************************************************
+//Consome do mago <argn> de mana e retorna quanta mana ele tem.

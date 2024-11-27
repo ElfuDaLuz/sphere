@@ -1,0 +1,16 @@
+//*****************************************************************************
+// Arquivo: function_mage_initspells.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:57.478Z
+[FUNCTION mage_initSpells]
+mage_wipeSpells
+if (!<IsEmpty <args>>)
+ tag.spells=;<args>;
+else
+ tag.spells=;
+endif
+
+//***********************************************************
+// mage_addSpell <spell>
+//***********************************************************
+//Adiciona uma magia para o jogador <default> na DB e na lista local.

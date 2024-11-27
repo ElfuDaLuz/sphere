@@ -1,0 +1,16 @@
+//*****************************************************************************
+// Arquivo: itemdef_i_grimorio_necro.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:13.667Z
+[ITEMDEF i_grimorio_necro]
+id=i_spellbook_necromancy
+name=grimorio de necromancia
+type=t_grimorio
+CATEGORY=MyT - Provisions - Alchemy & Magic
+SUBSECTION=Magical Items
+DESCRIPTION=necromancia
+
+on=@dclick
+src.ctag.mage_skill=skill_necromancy
+src.SDIALOG d_spellbook 1
+return 1

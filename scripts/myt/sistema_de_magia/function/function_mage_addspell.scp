@@ -1,0 +1,28 @@
+//*****************************************************************************
+// Arquivo: function_mage_addspell.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:59.493Z
+[FUNCTION mage_addSpell]
+local.spell=<mage_GetSpellNumber <argv0>>
+
+if (!<local.spell>)
+ return 0
+endif
+
+IF <mage_KnowSpell <local.spell>>
+ return 0
+else
+ IF (<IsEmpty <tag.spells>>)
+  tag.spells = <local.spell>
+ ELSE
+  tag.spells .= <SERV.SPELL.<local.spell>.defname>;
+ ENDIF
+ENDIF
+if (<IsPlayer>)
+    local.sk=<SERV.SPELL.<local.spell>.skillreq>
+    DB.QUERY="INSERT INTO spellbooks SET player=<dSRC>, skill=<dDEF.<streat <LOCAL.sk>>>, diff=<eval <strarg <LOCAL.sk>>>, spellid=<dlocal.spell>;"
+endif
+
+//***********************************************************
+// mage_GetSpellNumber
+//***********************************************************

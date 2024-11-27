@@ -1,0 +1,30 @@
+//*****************************************************************************
+// Arquivo: function_mage_prunedb.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:51.487Z
+[FUNCTION mage_pruneDB]
+DB.QUERY="SELECT DISTINCT player FROM spellbooks;"
+local.prune=0
+local.lst=-1.0        //truque sujo
+for p 0 <eval <DB.ROW.NUMROWS>-1>
+    LOCAL.player=<DB.ROW.<dlocal.p>.player>
+    obj=<LOCAL.player>
+    if ( (!<obj.Instances>) && (!<obj.IsChar>) ) || !<obj> 
+        local.lst .= ,<eval <LOCAL.player>>
+        local.prune += 1
+    endif
+end
+
+if <local.prune>
+    local.q="DELETE FROM spellbooks WHERE player IN (<local.lst>);"
+    serv.log [MAGE_PruneDB] <local.q>
+    DB.EXECUTE=<local.q>
+    return <local.prune>
+endif
+
+return 0
+
+//***********************************************************
+// mage_DumpSpells
+//***********************************************************
+//Mostra as magias inscritas na DB para este char

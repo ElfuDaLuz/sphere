@@ -1,0 +1,47 @@
+//*****************************************************************************
+// Arquivo: function_mage_enchant_gem.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:45.478Z
+[FUNCTION mage_enchant_gem]
+if (!<argo>)
+ sysmessageyellow Selecione a pedra lapidada ou varinha
+ targetf mage_enchant_gem
+ return 1
+elif (!<argo.isitem>)
+ sysmessagered Polimorfismo com gemas? Nao...
+ return 1
+elif (<argo.topobj>!=<src>) || ( ( (<argo.type>!=t_wand) && (!<argo.layer>) ) && (<argo.type>!=t_gem_stoned) )
+ sysmessagered Impossivel encantar isso.
+ return 1
+elif (<argo.amount> > 1)
+ sysmessagered Impossivel mais de uma por vez.
+ return 1
+elif (<argo.more2>) && (!<argo.layer>)
+ sysmessagered Esta gema ja foi encantada.
+ return 1
+elif (<argo.layer>) && !(<argo.attr>&01)
+ sysmessagered Voce nao faz ideia do que este objeto eh capaz de fazer.
+ return 1
+elif (<argo.more2> > 11) && (<argo.layer>)
+ sysmessagered Esta varinha alcancou sua carga maxima.
+ return 1
+elif (<argo.morex>)
+ if (!<mage_KnowSpell <argo.morex>>)
+  sysmessagered Voce nao conhece a magia <SERV.SPELL.<argo.morex>.name> para recarregar a varinha
+  return 1
+ endif
+endif
+//Limpa o cachê e salva a pedra.
+mage_cleartags
+src.ctag.mage.gem=<argo>
+if (<argo.morex>)
+ src.ctag.mage.enchant_spell=<argo.morex>
+endif
+src.ctag.mage_skill=Skill_<serv.skill.<eval <argo.tdata1>>.key>
+SDIALOG d_spellbook 3
+return 1
+
+//***********************************************************
+// mage_enchant_gem_select_spell
+//***********************************************************
+//Selecinou a magia <argn> como sendo a magia do encantamento de uma gema

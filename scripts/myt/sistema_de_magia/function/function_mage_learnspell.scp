@@ -1,0 +1,59 @@
+//*****************************************************************************
+// Arquivo: function_mage_learnspell.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:06.589Z
+[FUNCTION mage_learnSpell]
+//Faz o char aprender a spell <argv[0]>. <ARGV[1]> é opcional, quantas vezes vale esta tentativa.
+//Retorna 1 se o aprendizado terminou.
+//player.mage_learnSpell <spelldefname>
+
+if !<SERV.SPELL.<argn>>
+ serv.log [MAGIA] <TAG.NAME> [<ACCOUNT>] :: Magia '<args>' nao existe.
+ return 0
+endif
+
+if (!0<argv[1]>)
+ local.inc=1
+else
+ local.inc=<argv[1]>
+endif
+
+args=<SERV.SPELL.<argn>.defname>
+
+local.memory=<mage_findLearningSpell <args>>
+if !<local.memory>
+ //Ainda não começou a aprender essa. iniciar.
+ local.learning=<mage_countLearningSpells>
+ serv.newitem i_mry_learn_spell
+ new.link=<UID>
+ new.cont=<UID>
+ new.more1 <args>
+ new.timer <DEF.MAGE_LEARN_DECAY>
+ local.sname=<SERV.SPELL.<args>.name>
+ new.name=Learn Spell (<local.sname>)
+ sysmessageyellow Voce comecou a aprender uma magia nova: <local.sname>
+ sysmessageyellow Aprendendo agora <eval <local.learning>+1> novas magias
+ obj=<new>
+else
+ obj=<local.memory>
+endif
+
+//Já tá aprendendo a magia. Incrementar.
+obj.more2 += <local.inc>
+if <obj.more2> >= <mage_getIncLearning <obj.more1>>
+ //terminou o aprendizado
+ local.spell=<hval <obj.more1>&000ffffff>
+ mage_addSpell <local.spell>
+ timerf 3 sysmessageorange,Voce aprendeu uma magia nova: <SERV.SPELL.<local.spell>.name>
+ timerf 3 psfx,<SERV.SPELL.<local.spell>.SOUND>
+ obj.remove
+ return 1
+else
+ obj.timer=<DEF.MAGE_LEARN_DECAY>
+endif
+return 0
+
+//***********************************************************
+// mage_countLearningSpells
+//***********************************************************
+//Conta quantas spells o player está aprendendo.

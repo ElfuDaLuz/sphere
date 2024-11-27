@@ -1,0 +1,12 @@
+//*****************************************************************************
+// Arquivo: function_mage_register_altar_user.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:27.801Z
+[FUNCTION mage_register_altar_user]
+obj=<UID>
+for u 1 8
+ if (<isEmpty <obj.tag.user_<dlocal.u>>>)
+  try obj.tag.user_<dlocal.u>=<argn>
+  return 1
+ endif
+end

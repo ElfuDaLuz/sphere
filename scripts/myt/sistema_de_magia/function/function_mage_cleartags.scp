@@ -1,0 +1,24 @@
+//*****************************************************************************
+// Arquivo: function_mage_cleartags.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:39.008Z
+[FUNCTION mage_clearTags]
+tag.mage_spellid=
+tag.mage_know=
+tag.mage_source=
+tag.mage_mana=
+tag.mage_actdiff=
+tag.mage_skill=
+tag.mage_uid=
+tag.mage_p=
+if (<IsPlayer>)
+ ctag.mage.gem=
+ ctag.mage.power=
+ ctag.mage.enchant_spell=
+endif
+
+
+//***********************************************************
+// mage_skillgain
+//***********************************************************
+//Evita magos ganharem skill em spells muito simples para seu nível.

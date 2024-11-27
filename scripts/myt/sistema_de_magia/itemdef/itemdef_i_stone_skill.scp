@@ -1,0 +1,24 @@
+//*****************************************************************************
+// Arquivo: itemdef_i_stone_skill.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:35.880Z
+[ITEMDEF i_stone_skill]
+ID=0eDD
+NAME=Pedra de teste de skill
+TYPE=t_script
+
+on=@dclick
+src.menu m_test_skill
+return 1
+
+[MENU m_test_skill]
+O que deseja fazer agora? (sujeito a apenas uma subida de skill a cada 3 horas)
+
+ON=0 Subir 12.5 em uma skill
+src.test_skill_up
+
+ON=0 Descer 12.5 em uma skill
+src.test_skill_dn
+
+ON=0 Obter todas as magias
+src.test_allspells

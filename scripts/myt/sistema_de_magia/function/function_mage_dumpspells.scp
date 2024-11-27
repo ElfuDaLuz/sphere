@@ -1,0 +1,35 @@
+//*****************************************************************************
+// Arquivo: function_mage_dumpspells.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:53.487Z
+[FUNCTION mage_DumpSpells]
+if !<argo>
+    sysmessageyellow Selecione o char:
+    TARGETF mage_DumpSpells
+else
+    local.uid=<argo>
+    local.uid &= ~040000000
+
+    DB.QUERY="SELECT * FROM spellbooks WHERE player=<dlocal.uid>;"
+    local.c=0
+    serv.log ----------------[DUMPSPELLS]-------------------
+    serv.log UID:<local.uid>(<dlocal.uid>) ARGO:<argo> ACC:<argo.account> NAME:<argo.tag.name>
+    for s 0 <eval <DB.ROW.NUMROWS>-1>
+        local.m=I:<DB.ROW.<dlocal.s>.id>::P:<DB.ROW.<dlocal.s>.player>::Sid:<DB.ROW.<dlocal.s>.spellid>::Sk:<DB.ROW.<dlocal.s>.skill>::Dif:<DB.ROW.<dlocal.s>.diff>
+        if <local.c>
+            local.c=0
+            sysmessageyellow <local.m>
+        else
+            local.c=1
+            sysmessagegreen <local.m>
+        endif
+        serv.log <dlocal.s> - <local.m>
+    end
+    serv.log ----------------[/DUMPSPELLS]------------------
+endif
+
+
+//***********************************************************
+// mage_wipeSpells
+//***********************************************************
+//Limpa todas as magias do player <default> da DB

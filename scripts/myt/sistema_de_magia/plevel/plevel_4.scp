@@ -1,0 +1,11 @@
+//*****************************************************************************
+// Arquivo: plevel_4.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:35.983Z
+[PLEVEL 4]
+mage_initSpells
+mage_KnowSpell
+mage_addSpell
+mage_learnSpell
+mage_loadSpells
+mage_forgetSpell

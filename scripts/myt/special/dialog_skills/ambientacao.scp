@@ -1,0 +1,163 @@
+[DIALOG d_ambientacao]
+// Página 1 (page 0)
+120,75
+page 0
+resizepic 50 31 2620 500 400 // Fundo da página 0
+checkertrans 55 38 490 385 // Transparência para fundo
+gumppic 0 0 10400 // Gump de fundo
+gumppic 0 160 10401 // Gump de imagem 1
+gumppic 0 356 10402 // Gump de imagem 2
+gumppic 518 -2 10410 // Gump de barra superior
+gumppic 518 160 10411 // Gump de barra lateral
+gumppic 518 356 10412 // Gump de rodapé
+gumppic 217 45 2440 // Gump do título
+dtext 233 48 48 Noites Sombrias Shard // Título do servidor
+resizepic 92 87 2620 416 310 // Fundo do conteúdo
+Page 1
+// Definindo os textos de introdução na Página 1
+text 225 95 48 0
+text 120 110 400 1
+text 120 125 400 2
+text 120 140 400 3
+text 120 155 400 4
+text 120 170 400 5
+text 120 185 400 6
+text 120 200 400 7
+text 120 215 400 8
+text 120 230 400 9
+text 120 245 400 10
+text 120 260 400 11
+text 120 275 400 12
+text 120 290 400 13
+text 120 305 400 14
+text 120 320 400 15
+
+// Botões de navegação na Página 1
+button 470 350 4005 4007 1 0 1 // Avançar para a página 2
+
+// Página 2 (page 1)
+page 2
+text 120 110 400 16
+text 120 125 400 17
+text 120 140 400 18
+text 120 155 400 19
+text 120 170 400 20
+text 120 185 400 21
+text 120 200 400 22
+text 120 215 400 23
+text 120 230 400 24
+text 120 245 400 25
+text 120 260 400 26
+text 120 275 400 27
+text 120 290 400 28
+text 120 305 400 29
+text 120 320 400 30
+
+// Botões de navegação na Página 2
+button 100 350 4014 4016 1 1 0 // Retroceder para a página 0
+button 470 350 4005 4007 1 1 2 // Avançar para a página 3
+
+// Página 3 (page 2)
+page 3
+text 120 110 400 31
+text 120 125 400 32
+text 120 140 400 33
+text 120 155 400 34
+text 120 170 400 35
+text 120 185 400 36
+text 120 200 400 37
+text 120 215 400 38
+text 120 230 400 39
+text 120 245 400 40
+text 120 260 400 41
+text 120 275 400 42
+text 120 290 400 43
+text 120 305 400 44
+text 120 320 400 45
+
+// Botões de navegação na Página 3
+button 100 350 4014 4016 1 2 1 // Retroceder para a página 1
+button 470 350 4005 4007 1 2 3 // Avançar para a página 4
+
+// Página 4 (page 3)
+page 4
+text 120 110 400 46
+text 120 125 400 47
+text 120 140 400 48
+text 120 155 400 49
+text 120 170 400 50
+text 120 185 400 51
+text 120 200 400 52
+text 120 215 400 53
+text 120 230 400 54
+text 120 245 400 55
+text 120 260 400 56
+text 120 275 400 57
+text 120 290 400 58
+text 120 305 400 59
+text 120 320 400 60
+
+// Botões de navegação na Página 4
+button 100 400 4014 4016 1 1 0
+
+[DIALOG d_ambientacao TEXT]
+ 
+Ambientação do Jogador  
+
+Em Solaris, a cidade é um bastião da fé templária,  
+onde a luz de Solirin e Solaris guia os caminhos  
+de seus habitantes. Os templos dedicados aos deuses  
+da ordem e da justiça são marcos imponentes, e o  
+Clero Sagrado atua como um baluarte contra as artes  
+obscuras. Magias negras e necromancia são estritamente  
+proibidas e combatidas pela ordem Guardiões da Chama  
+Dourada, defensores incansáveis da luz e da justiça.  
+
+O sistema governamental é liderado pelo Rei Edorin,  
+devoto fervoroso de Solirin. Sob sua regência, Solaris  
+é um centro de união entre humanos e elfos, protegidos  
+pelos ensinamentos e pela espada do Clero Templário.  
+Essa organização combina fé e militarismo, treinando  
+templários para proteger o reino de ameaças profanas.  
+O Alto Sacerdote Theomar lidera os ritos sagrados,  
+enquanto o Mestre de Guerra Alaric comanda campanhas  
+contra adoradores do caos e usuários de magia sombria.  
+
+A Catedral da Luz Eterna, sede do Clero Sagrado, é o  
+coração espiritual da cidade. Suas torres gêmeas vigiam  
+Solaris, um símbolo de proteção e julgamento. Os templários,  
+sempre em armaduras reluzentes, marcham pelas ruas,  
+garantindo que nenhum praticante de necromancia prospere.  
+Os julgamentos contra crimes mágicos são feitos no Salão  
+do Fogo, onde o Conselho Sagrado decide o destino dos réus.  
+
+A estrutura social de Solaris gira em torno do equilíbrio  
+entre fé e comércio. Fazendas comunitárias abastecem a  
+cidade, enquanto mercadores se reúnem sob a vigilância  
+dos Guardiões da Luz. O porto é vital para o comércio e  
+defesa, com a Marinha de Solaris protegendo as rotas. O  
+povo vive sob a promessa de justiça e segurança, assegurada  
+pela ordem templária, que mantém a paz e o progresso.  
+
+Solaris é um símbolo de ordem e fé inabalável. Cada cidadão,  
+seja fazendeiro ou templário, contribui para a glória do  
+reino. Celebrações, como o Festival da Chama Eterna, unem  
+a todos, enquanto as sombras do caos são perseguidas sem  
+descanso. A cidade é um farol de luz em Azarzur, resistindo  
+às trevas com força, sabedoria e a bênção de Solirin e Solaris.   
+
+
+
+[DIALOG d_ambientacao BUTTON]
+
+ON=0
+// Primeira página
+DIALOG d_ambientacao 1
+
+ON=1
+// Segunda página
+DIALOG d_ambientacao 2
+
+ON=2
+// Terceira página
+DIALOG d_ambientacao 3

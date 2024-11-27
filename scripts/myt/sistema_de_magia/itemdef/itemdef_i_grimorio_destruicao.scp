@@ -1,0 +1,16 @@
+//*****************************************************************************
+// Arquivo: itemdef_i_grimorio_destruicao.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:12.660Z
+[ITEMDEF i_grimorio_destruicao]
+id=i_spellbook
+name=grimorio de destruicao
+type=t_grimorio
+CATEGORY=MyT - Provisions - Alchemy & Magic
+SUBSECTION=Magical Items
+DESCRIPTION=destruicao
+
+on=@dclick
+src.ctag.mage_skill=skill_magery
+src.SDIALOG d_spellbook 1
+return 1

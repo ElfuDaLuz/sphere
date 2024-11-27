@@ -1,0 +1,43 @@
+//*****************************************************************************
+// Arquivo: function_mage_findlearningspell.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:08.617Z
+[FUNCTION mage_findLearningSpell]
+FORCHARLAYER 30//memory_learnSpell
+ if (<defname>==i_mry_learn_spell)
+  if <to32 <more1>>==<args>
+	return <uid>
+  endif
+ endif
+ENDFOR
+return 0
+
+//***********************************************************
+// mage_paradoxEffect
+//***********************************************************
+//Causa uma coisa ruim para o mago que usa caminhos da magia paradoxais.
+DOSWITCH <argn>
+ spelleffect s_queimadura,100.0,<src>//Só um aviso
+ Buff_Int <eval 40-<int>,<eval 60*60*4>//40 de int por 4 horas
+ damage <R13,30>,dam_god,<src>//Dano de 13 a 30
+ Buff_Int <eval 27-<int>,<eval 60*60*8>//27 de int por 8 horas
+ uid.<f_conjure_creature {c_elem_earth 1 c_elem_water 1 c_elem_air 1 c_elem_fira 1},<eval 60*30>>.attack <uid>//NPC encrenca
+ Buff_Int <eval 17-<int>,<eval 60*60*12>//17 de int por 12 horas
+ f_polymorph <body>,021,<eval 60*60*24*7>//Ficar vermelho por uma semana
+ stonned <eval 60*60*12>//Vira estatua por 12 horas
+ Buff_Int <eval 5-<int>,<eval 60*60*24>//5 de int por 1 dia
+ f_polymorph c_snake,colors_blue,<eval 60*60*24>//Vira uma cobra azul por 1 dia
+ go 5284,620,20//Vai pro INFERNO!
+ENDDO
+if (<local.s> > 10)
+ kill
+endif
+timerf 5,psfx,0246
+sysmessagered Voce esta sofrendo efeitos do Paradoxo!
+
+//***********************************************************
+// mage_CalcEnchant
+//***********************************************************
+//CALL mage_CalcEnchant
+//Calcula e retorna como LOCAL mana usada, reags, tempo de preparação, custo em skill do
+//encantamento de uma gema

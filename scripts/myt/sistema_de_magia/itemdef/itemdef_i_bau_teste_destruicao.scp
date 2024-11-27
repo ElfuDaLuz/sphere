@@ -1,0 +1,19 @@
+//*****************************************************************************
+// Arquivo: itemdef_i_bau_teste_destruicao.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:31.840Z
+[ITEMDEF i_bau_teste_destruicao]
+NAME=Pergaminhos de destruicao
+ID=i_chest_metal
+TYPE=T_CONTAINER
+FLIP=1
+WEIGHT=20
+TEVENTS=t_spell_test_cont
+
+on=@create
+color=028
+more1=20
+more2=0
+morex=100
+morey=119
+morez=60

@@ -1,0 +1,22 @@
+//*****************************************************************************
+// Arquivo: typedef_t_spell_test_cont.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:30.831Z
+[TYPEDEF t_spell_test_cont]
+//Gera <more1> amt de cada pergaminho das magias nº [<morex>:<morey>]
+//A cada <morez> minutos
+on=@dclick
+if (<eval (<serv.time>-<more2>)/600> > <morez>)
+ more2=<serv.time>
+ empty
+ for s <morex> <morey>
+  if (<SERV.SPELL.<local.s>>)
+   serv.newitem <SERV.SPELL.<local.s>.SCROLL_ITEM>
+   new.cont=<uid>
+   new.amount=<more1>
+  else
+   serv.log [CAIXA DE TESTE DE MAGIA] - <dlocal.s> nao eh magia.
+  endif
+ end
+ update
+endif

@@ -1,0 +1,40 @@
+//*****************************************************************************
+// Arquivo: function_mage_skillgain.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:49:40.023Z
+[FUNCTION mage_skillgain]
+//cache vars
+LOCAL.skillreq=<SERV.SPELL.<tag0.mage_spellid>.skillreq>
+LOCAL.skilldiff=<strarg <LOCAL.skillreq>>
+LOCAL.skillreq=<streat <LOCAL.skillreq>>
+if (strmatch(skill_*,<LOCAL.skillreq>))
+    LOCAL.skillname=<LOCAL.skillreq>
+else
+    LOCAL.skillname=skill_<LOCAL.skillreq>
+endif
+
+try LOCAL.MY=<SRC.<DEF.<LOCAL.skillname>>>
+//serv.log [MAGE_SKILLGAIN] <account> tem <dlocal.my> de <LOCAL.skillname>
+LOCAL.ACT=<LOCAL.skilldiff>+300
+if (<local.my> < <local.act>)
+  //Checar caminhos opostos
+ if (<DEF.<local.skillname>>==<DEF.SKILL_Spellweaving>) && (<necromancy>)
+  necromancy -= 1
+ elif (<DEF.<local.skillname>>==<DEF.SKILL_Magery>) && (<focus>)
+  focus -= 1
+ elif (<DEF.<local.skillname>>==<DEF.SKILL_Necromancy>) && (<spellweaving>)
+  spellweaving -= 1
+ elif (<DEF.<local.skillname>>==<DEF.SKILL_Focus>) && (<Magery>)
+  magery -= 1
+ endif
+ //Trigar ganho de skill
+// serv.log [MAGE_SKILLGAIN] <src.account> skill_gain <LOCAL.skillname>
+ skill_gain <LOCAL.skillname>
+else
+// serv.log [MAGE_SKILLGAIN] <src.account> NAO GANHA SKILL <LOCAL.skillname> pq eh muito facil
+endif
+
+//***********************************************************
+// mage_success
+//***********************************************************
+//chamado no @SKILLSUCCESS para skills Magery, Necromancy, Focus e SpellWeaving

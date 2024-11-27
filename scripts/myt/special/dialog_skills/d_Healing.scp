@@ -1,0 +1,169 @@
+// Arquery - Diálogo de Habilidade
+[DIALOG d_healing]
+100,75
+page 0
+resizepic 50 31 2620 500 400 // Fundo da página 0
+checkertrans 55 38 490 385 // Transparência para fundo
+gumppic 0 0 10400 // Gump de fundo
+gumppic 0 160 10401 // Gump de imagem 1
+gumppic 0 356 10402 // Gump de imagem 2
+gumppic 518 -2 10410 // Gump de barra superior
+gumppic 518 160 10411 // Gump de barra lateral
+gumppic 518 356 10412 // Gump de rodapé
+gumppic 217 45 2440 // Gump do título
+text 232 48 48 0  Noites Sombrias Shard // Título do servidor
+resizepic 92 87 2620 416 310 // Fundo do conteúdo
+
+page 1
+// Icone ou imagem cliloc
+text 220 100 48 1
+gumppic 125 120 124 // Exemplo de ícone de habilidade
+text 120 280 2497 2
+text 120 300 2497 3
+text 120 320 2497 4
+text 120 340 2497 5
+button 100 400 4014 4016 1 1 0 // Botão para próxima página
+button 470 400 4014 4016 1 1 1 // Botão para próxima página
+
+page 2
+text 100 100 2497 6
+text 100 120 2497 7
+text 100 140 2497 8
+text 100 160 2497 9
+text 100 180 2497 10
+text 100 200 2497 11
+text 100 220 2497 12
+text 100 240 2497 13
+text 100 260 2497 14
+text 100 280 2497 15
+text 100 300 2497 16
+text 100 320 48 17
+text 100 340 2497 18
+text 100 360 2497 19
+button 100 400 4014 4016 1 1 2 // Botão para próxima página
+button 470 400 4014 4016 1 1 3 // Botão para próxima página
+
+page 3
+text 100 100 2497 20
+text 100 120 48 21
+text 100 140 400 22
+text 100 160 400 23
+text 100 180 400 24
+text 100 200 400 25
+text 100 220 400 26
+text 100 240 400 27
+text 100 260 48 28
+text 100 280 2497 29
+text 100 300 2497 30
+text 100 320 2497 31
+text 100 340 2497 32
+button 100 400 4014 4016 1 1 4 // Botão para próxima página
+button 470 400 4014 4016 1 1 5 // Botão para próxima página
+
+page 4
+text 100 100 48 33
+
+text 100 120 48 34
+text 100 140 400 35
+text 100 160 400 36
+text 100 180 400 37
+text 100 200 400 38
+text 100 220 400 39
+text 100 240 400 40
+text 100 280 2497 41
+text 100 300 2497 42
+text 100 320 2497 43
+text 100 340 2497 44
+text 100 360 2497 45
+text 100 380 2497 46
+text 100 400 2497 47
+button 100 400 4014 4016 1 1 6 // Botão para próxima página
+
+// Continuar adicionando páginas conforme necessário
+
+[DIALOG d_healing TEXT]
+Noites Sombrias Shard
+(Tratamento de Ferimentos)
+
+A habilidade de Cura permite que o jogador recupere sua 
+própria saúde ou a de outros personagens, desde que 
+possua bandagens limpas em sua bolsa. Essencial para 
+qualquer aventureiro, essa skill não só ajuda a 
+restaurar rapidamente pontos de vida perdidos como também pode
+salvar vidas ao tratar personagens desmaiados. Para usar basta,
+clicar duas vezes na bandagem e selecionar o alvo ferido ou caído.
+Regras de Uso Para manter o conceito de Role Play (RP), algumas
+condições são necessárias: 
+O curandeiro deve estar próximo do ferido.
+O alvo precisa estar realmente ferido; caso contrário,
+não há efeito, e a habilidade não evolui.
+
+Ambos os personagens devem permanecer parados e fora do 
+modo de combate (Warmode).Nenhum dos dois pode 
+ser atingido durante o tratamento.
+
+Duração e Eficácia do Tratamento:
+O tempo e a quantidade de pontos de vida recuperados 
+por segundo aumentam com o nível da habilidade de Cura,
+como mostrado na tabela a seguir:
+
+Healing Tempo de Tratamento HP Restituídos/Segundo
+
+0.0     3 seg     1 a 2
+25.0    5 seg     1 a 2
+50.0    7 seg     1 a 3
+
+75.0    9 seg     1 a 4
+100.0   12 seg    1 a 5
+125.0   14 seg    1 a 5
+
+Eficiência no Uso de Bandagens:
+Curandeiros mais experientes conseguem fazer melhor uso de suas 
+bandagens, evitando desperdícios. Jogadores com menos habilidade
+salva mais bandagem durante o tratamento.
+Basta lavá-la para poder utilizá-la novamente.
+
+Chance de Recuperação de Bandagem Suja:
+Healing Chance de Recuperar
+
+0.0     55%
+25.0    45%
+50.0    35%
+
+75.0    25%
+100.0   15%
+125.0   5%
+
+Essa habilidade pode ser a diferença entre a vida e a morte 
+em momentos críticos, e o aprimoramento contínuo torna o
+curandeiro mais eficiente e econômico no uso de bandagens.
+
+[DIALOG d_healing BUTTON]
+
+ON=0
+
+sDIALOG d_skills 2
+
+ON=1
+
+sDIALOG d_healing 2
+
+ON=2
+
+sDIALOG d_healing 1
+
+ON=3
+
+sDIALOG d_healing 3
+
+ON=4
+
+sDIALOG d_healing 2
+
+ON=5
+
+sDIALOG d_healing 4
+
+ON=6
+
+sDIALOG d_healing 3

@@ -1,0 +1,18 @@
+//*****************************************************************************
+// Arquivo: function_test_skill_apply_up.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:40.923Z
+[FUNCTION test_skill_apply_up]
+if (<tag0.skill_test_time>)
+ local.eltime=<hval <serv.time>-<tag0.skill_test_time>>
+ local.extime=<hval <local.eltime>-10*60*60>
+ if (<local.extime> < 0)
+  sysmessagered Voce deve esperar mais <f_timestring <eval -<local.extime>/10>> para subir novamente uma skill.
+  return 1
+ endif
+endif
+test_CorrectSkills
+argn -= 1
+src.<argn> += 125
+src.tag.skill_test_time=<serv.time>
+src.sysmessageyellow Voce podera utilizar este comando novamente em 1 hora.

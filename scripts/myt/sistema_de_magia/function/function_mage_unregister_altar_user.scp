@@ -1,0 +1,25 @@
+//*****************************************************************************
+// Arquivo: function_mage_unregister_altar_user.scp
+//*****************************************************************************
+//Rev: 1 Ts: 2024-10-27T05:50:28.815Z
+[FUNCTION mage_UNregister_altar_user]
+obj=<UID>
+for u 1 8
+ //serv.log Usuario <dlocal.u>=<obj.tag0.user_<dlocal.u>>
+ if (<obj.tag0.user_<dlocal.u>>==<argn>)
+  try obj.tag.user_<dlocal.u>=
+  return 1
+ endif
+end
+
+[REGIONTYPE r_altar_magic]
+on=@enter
+src.sysmessageblue Voce sente uma aura magica.
+src.dspeech +spk_altar_magic
+uid.<uid>.mage_register_altar_user <src.uid>
+src.music=<hval <DEF.musics_dungeon>>
+
+on=@exit
+src.sysmessageyellow Voce nao sente mais magia.
+uid.<uid>.mage_UNregister_altar_user <src.uid>
+src.dspeech -spk_altar_magic
