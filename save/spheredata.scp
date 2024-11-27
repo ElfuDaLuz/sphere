@@ -1,0 +1,270 @@
+TITLE=Sphere World Script
+VERSION=0.56d-Nightly
+PREVBUILD=1119
+TIME=18446744076243130
+SAVECOUNT=51
+
+[TIMERF]
+CurTick=1
+
+[GLOBALS]
+ev_max_on_players=01
+manutencao=00
+rpoff=00
+tday=011
+thour=06
+tmin=0c
+tmonth=01
+tyear=01
+
+[WORLDSCRIPT a_world]
+TAG.temperature=00
+
+[WORLDSCRIPT a_the_town_of_britain]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather=02
+TAG.weather_active=04189374becdba6
+TAG.weather_next=04189374becff41
+
+[WORLDSCRIPT a_pirate_isle]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather=00
+TAG.weather_active=00
+
+[WORLDSCRIPT a_ilha_newbie]
+TAG.modtemp=0f
+TAG.temperature=0f
+TAG.weather=00
+TAG.weather_active=04189374bed6fa4
+
+[WORLDSCRIPT a_farmlands_main]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather=02
+TAG.weather_active=04189374be07fb8
+TAG.weather_next=04189374be10615
+
+[WORLDSCRIPT a_southern_britain_farm1]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0bfd7
+
+[WORLDSCRIPT a_southern_britain_farm2]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0bbb7
+
+[WORLDSCRIPT a_western_britain_farm1]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0ba1b
+
+[WORLDSCRIPT a_northern_britain_farm2]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather=02
+TAG.weather_active=04189374be39390
+TAG.weather_next=04189374be3b439
+
+[WORLDSCRIPT a_northern_britain_farm3]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0bc8d
+
+[WORLDSCRIPT a_eastern_moon_farm]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0ab41
+
+[WORLDSCRIPT a_a_cemetary]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0f919
+
+[WORLDSCRIPT a_an_old_fortress]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0a8d5
+
+[WORLDSCRIPT a_the_dark_tower]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0ce94
+
+[WORLDSCRIPT a_a_mountain_stronghold]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather=02
+TAG.weather_active=04189374be0bb10
+TAG.weather_next=04189374be116a8
+
+[WORLDSCRIPT a_vinterdale_isle]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0c336
+
+[WORLDSCRIPT a_the_iceclad_fisherman's_village]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0690c
+
+[WORLDSCRIPT a_the_mountain_crest_village]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0e504
+
+[WORLDSCRIPT a_the_shingorr_village]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be09727
+
+[WORLDSCRIPT a_unknown_land]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather=02
+TAG.weather_active=04189374be07f9e
+TAG.weather_next=04189374be0c0b1
+
+[WORLDSCRIPT a_the_town_of_renika]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0b446
+
+[WORLDSCRIPT a_a_cathedral]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be082d2
+
+[WORLDSCRIPT a_ambrosia]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather=02
+TAG.weather_active=04189374be0734a
+TAG.weather_next=04189374be0aeaf
+
+[WORLDSCRIPT a_a_ababdoned_town]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be08c49
+
+[WORLDSCRIPT a_dawn]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0972f
+
+[WORLDSCRIPT a_the_town_of_dawn]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0ace0
+
+[WORLDSCRIPT a_the_etherial_town_of_dawn]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be08c2c
+
+[WORLDSCRIPT a_the_start_room]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather=00
+TAG.weather_active=04189374bdfd199
+TAG.weather_next=00
+
+[WORLDSCRIPT a_the_town_room]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be09aa2
+
+[WORLDSCRIPT a_at_or_near_a_dungeon_entrance]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather=00
+TAG.weather_active=04189374be0ea78
+
+[WORLDSCRIPT a_the_caverns_under_the_britain_cemetery]
+TAG.temperature=00
+
+[WORLDSCRIPT a_the_sewers_under_britain]
+TAG.temperature=00
+
+[WORLDSCRIPT a_the_dardin's_pit_dungeon]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather=00
+TAG.weather_active=00
+TAG.weather_next=04189374be0731a
+
+[WORLDSCRIPT a_the_perinia_depths_dungeon]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0a240
+
+[WORLDSCRIPT a_the_time_awaits_dungeon]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be09fd3
+
+[WORLDSCRIPT a_the_clues_dungeon]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be07fe3
+
+[WORLDSCRIPT a_the_mines_of_morinia_dungeon]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0d1f2
+
+[WORLDSCRIPT a_the_fires_of_hell_dungeon]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0a2e3
+
+[WORLDSCRIPT a_the_kings_chamber]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0f88a
+
+[WORLDSCRIPT a_the_time_lord's_chamber]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0b81f
+
+[WORLDSCRIPT a_a_player's_dungeon]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be039ad
+
+[WORLDSCRIPT a_the_caverns_under_dawn]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be1111f
+
+[WORLDSCRIPT a_a_cave]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather=02
+TAG.weather_active=04189374be0b75e
+TAG.weather_next=04189374be0f5b5
+
+[WORLDSCRIPT a_the_frost_guard_dungeon]
+TAG.modtemp=00
+TAG.temperature=05
+TAG.weather_active=04189374be0ca15
+
+[WORLDSCRIPT a_the_icy_depths_dungeon]
+TAG.modtemp=00
+TAG.temperature=05
+TAG.weather_active=04189374be1003c
+
+[WORLDSCRIPT a_the_dragon's_eye_watch_dungeon]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be111b4
+
+[WORLDSCRIPT a_an_ancient_catacomb]
+TAG.modtemp=05
+TAG.temperature=05
+TAG.weather_active=04189374be0a3a3
+
+[EOF]
